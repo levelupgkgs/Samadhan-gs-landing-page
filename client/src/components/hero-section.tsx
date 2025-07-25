@@ -25,7 +25,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                Master Competitive Exams
+                Master on GK/GS for Government exam
               </motion.span>
               <br />
               <motion.span 
