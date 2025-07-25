@@ -90,6 +90,44 @@ export default {
       title: 'Excerpt',
       type: 'text',
       rows: 4,
+      description: 'Brief summary for social media and search results (150-160 characters recommended)',
+    },
+    {
+      name: 'seo',
+      title: 'SEO Settings',
+      type: 'object',
+      fields: [
+        {
+          name: 'metaTitle',
+          title: 'Meta Title',
+          type: 'string',
+          description: 'Custom title for search engines (50-60 characters)',
+        },
+        {
+          name: 'metaDescription',
+          title: 'Meta Description',
+          type: 'text',
+          rows: 3,
+          description: 'Description for search results (150-160 characters)',
+        },
+        {
+          name: 'keywords',
+          title: 'Focus Keywords',
+          type: 'array',
+          of: [{type: 'string'}],
+          description: 'Main keywords this post should rank for',
+        },
+        {
+          name: 'ogImage',
+          title: 'Social Media Image',
+          type: 'image',
+          description: 'Custom image for social media sharing (1200x630 recommended)',
+        },
+      ],
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     },
     {
       name: 'body',
