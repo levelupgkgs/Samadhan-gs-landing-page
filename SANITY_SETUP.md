@@ -22,18 +22,21 @@ sanity init
 
 ## Step 2: Configure Your Environment Variables
 
-1. Copy `.env.example` to `.env`:
-   ```bash
-   cp .env.example .env
-   ```
+From your Sanity dashboard command, I can see your credentials:
+- **Project ID**: `zg0tonh6` (from the command: `npm create sanity@latest -- --project zg0tonh6`)
+- **Dataset**: `production` (the default dataset)
 
-2. Update the values in `.env`:
-   ```
-   VITE_SANITY_PROJECT_ID=your-actual-project-id
-   VITE_SANITY_DATASET=production
-   ```
+### Where to find these in Sanity:
+1. **Project ID**: Found in your Sanity dashboard URL or the setup command you received
+2. **Dataset**: Usually "production" (the default) unless you specified otherwise
 
-   You can find your project ID in the Sanity management dashboard or in your sanity.config.js file.
+### In Replit:
+1. Click the "Secrets" tab in your Replit project
+2. Add these environment variables:
+   - Key: `VITE_SANITY_PROJECT_ID`, Value: `zg0tonh6`
+   - Key: `VITE_SANITY_DATASET`, Value: `production`
+
+Or you can use the secrets prompt that appears in this chat.
 
 ## Step 3: Create Blog Schema (if not using template)
 
