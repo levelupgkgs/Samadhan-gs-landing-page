@@ -1,9 +1,9 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 
-// Environment variables for Vite (will be set later in .env file)
-const projectId = typeof window !== 'undefined' && (window as any).__ENV__?.VITE_SANITY_PROJECT_ID || 'your-project-id'
-const dataset = typeof window !== 'undefined' && (window as any).__ENV__?.VITE_SANITY_DATASET || 'production'
+// Environment variables for Vite
+const projectId = 'zg0tonh6' // Your Sanity project ID
+const dataset = 'production' // Default dataset
 
 export const client = createClient({
   projectId,
