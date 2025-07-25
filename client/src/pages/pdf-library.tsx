@@ -64,7 +64,7 @@ export default function PDFLibrary() {
 
   // Process the data for display
   const cleanCategoryName = (name: string) => {
-    return name.replace(/^\d+\.\s*/, '').split(/\s*[\(\u0900-\u097F]+[\)\s]*$/)[0].trim();
+    return name.replace(/^\d+\.\s*/, '').trim();
   };
 
   // Format names with "|" symbol - split English and Hindi on separate lines
@@ -143,6 +143,10 @@ export default function PDFLibrary() {
     }
   }, [selectedCategory]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
@@ -177,13 +181,11 @@ export default function PDFLibrary() {
   };
 
   const getCategoryImageUrl = (category: Category) => {
-    // Try multiple possible paths for category images
-    return `https://server.samadhangs.com/upload/categories/images/${category.category_image}`;
+    return `https://server.samadhangs.com/upload/categories/${category.category_image}`;
   };
 
   const getSubCategoryImageUrl = (subcategory: SubCategory) => {
-    // Try multiple possible paths for subcategory images  
-    return `https://server.samadhangs.com/upload/subcategories/images/${subcategory.sub_category_image}`;
+    return `https://server.samadhangs.com/upload/subcategories/${subcategory.sub_category_image}`;
   };
 
   return (
@@ -298,7 +300,7 @@ export default function PDFLibrary() {
               {apiData?.map((category, index) => (
                 <motion.div
                   key={category.id}
-                  className="glass-effect border border-slate-700 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group cursor-pointer"
+                  className="glass-effect border border-slate-700 rounded-xl hover:border-primary/50 transition-all duration-300 group cursor-pointer"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -313,18 +315,7 @@ export default function PDFLibrary() {
                       className="w-full h-full object-cover object-center scale-100 group-hover:scale-110 transition-transform duration-300"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        // Try alternative paths before falling back to placeholder
-                        const altPaths = [
-                          `https://server.samadhangs.com/${category.category_image}`,
-                          `https://server.samadhangs.com/images/categories/${category.category_image}`,
-                          `https://server.samadhangs.com/storage/categories/${category.category_image}`,
-                          `https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300`
-                        ];
-                        const currentSrc = target.src;
-                        const currentIndex = altPaths.findIndex(path => currentSrc.includes(path));
-                        if (currentIndex < altPaths.length - 1) {
-                          target.src = altPaths[currentIndex + 1];
-                        }
+                        target.src = `https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300`;
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
@@ -332,7 +323,7 @@ export default function PDFLibrary() {
 
                   {/* Category Info */}
                   <div className="p-4">
-                    <h3 className="font-semibold text-white mb-2 group-hover:text-primary transition-colors text-center">
+                    <h3 className="font-semibold text-white mb-2 group-hover:text-primary transition-colors text-center whitespace-normal break-words">
                       {formatNameWithTranslation(category.category_name)}
                     </h3>
                     <p className="text-sm text-slate-400 text-center">
@@ -356,7 +347,7 @@ export default function PDFLibrary() {
                 return selectedCategoryData?.subcategories.map((subcategory, index) => (
                   <motion.div
                     key={subcategory.id}
-                    className="glass-effect border border-slate-700 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group cursor-pointer"
+                    className="glass-effect border border-slate-700 rounded-xl hover:border-primary/50 transition-all duration-300 group cursor-pointer"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -371,18 +362,7 @@ export default function PDFLibrary() {
                         className="w-full h-full object-cover object-center scale-100 group-hover:scale-110 transition-transform duration-300"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          // Try alternative paths before falling back to placeholder
-                          const altPaths = [
-                            `https://server.samadhangs.com/${subcategory.sub_category_image}`,
-                            `https://server.samadhangs.com/images/subcategories/${subcategory.sub_category_image}`,
-                            `https://server.samadhangs.com/storage/subcategories/${subcategory.sub_category_image}`,
-                            `https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300`
-                          ];
-                          const currentSrc = target.src;
-                          const currentIndex = altPaths.findIndex(path => currentSrc.includes(path));
-                          if (currentIndex < altPaths.length - 1) {
-                            target.src = altPaths[currentIndex + 1];
-                          }
+                          target.src = `https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300`;
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
@@ -390,7 +370,7 @@ export default function PDFLibrary() {
 
                     {/* Subcategory Info */}
                     <div className="p-4">
-                      <h3 className="font-semibold text-white mb-2 group-hover:text-primary transition-colors text-center">
+                      <h3 className="font-semibold text-white mb-2 group-hover:text-primary transition-colors text-center whitespace-normal break-words">
                         {formatNameWithTranslation(subcategory.sub_category_name)}
                       </h3>
                       <p className="text-sm text-slate-400 text-center">
@@ -441,7 +421,7 @@ export default function PDFLibrary() {
                 return (
                   <motion.div
                     key={book.id}
-                    className="glass-effect border border-slate-700 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                    className="glass-effect border border-slate-700 rounded-xl hover:border-primary/50 transition-all duration-300 group"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -494,12 +474,12 @@ export default function PDFLibrary() {
                         )}
                       </div>
                       
-                      <h3 className="font-semibold text-white mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="font-semibold text-white mb-2 group-hover:text-primary transition-colors text-center whitespace-normal break-words">
                         {formatNameWithTranslation(book.title)}
                       </h3>
                       
                       {book.description && (
-                        <p className="text-sm text-slate-400 mb-3 line-clamp-2">
+                        <p className="text-sm text-slate-400 mb-3">
                           {book.description}
                         </p>
                       )}
