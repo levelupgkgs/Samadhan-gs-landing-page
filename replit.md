@@ -18,12 +18,18 @@ A full-stack JavaScript application built with:
 - [2025-01-25] Migrated project from Replit Agent environment
 - [2025-01-25] Fixed tsx dependency issue - project now starts successfully
 - [2025-01-25] Verified full-stack setup is working correctly
+- [2025-01-25] Integrated Sanity.io blog system with complete CMS functionality
 
 ## Project Architecture
 - `client/`: Frontend React application
 - `server/`: Backend Express.js API
 - `shared/`: Shared TypeScript schemas and types
 - Modern development setup with hot reloading for both frontend and backend
+- **Blog System**: Sanity.io CMS integration with rich content support
+  - Blog listing page (`/blog`)
+  - Individual blog post pages (`/blog/[slug]`)
+  - Portable Text rendering for rich content
+  - Image optimization and SEO features
 
 ## User Preferences
 - None specified yet

@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import PDFLibrary from "@/pages/pdf-library";
+import Blog from "@/pages/blog";
+import BlogPost from "@/pages/blog-post";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -12,6 +14,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/pdf-library" component={PDFLibrary} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -2,9 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "wouter";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -23,46 +25,82 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <motion.div 
-            className="flex items-center space-x-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <Link href="/">
             <motion.div 
-              className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center"
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}
+              className="flex items-center space-x-2 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="text-white font-bold text-sm">S</span>
+              <motion.div 
+                className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-white font-bold text-sm">S</span>
+              </motion.div>
+              <span className="text-xl font-bold text-white">Samadhan GS</span>
             </motion.div>
-            <span className="text-xl font-bold text-white">Samadhan GS</span>
-          </motion.div>
+          </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            <motion.button 
-              onClick={() => scrollToSection("features")}
-              className="text-slate-300 hover:text-white transition-colors"
-              whileHover={{ scale: 1.05, color: "#ffffff" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Features
-            </motion.button>
-            <motion.button 
-              onClick={() => scrollToSection("testimonials")}
-              className="text-slate-300 hover:text-white transition-colors"
-              whileHover={{ scale: 1.05, color: "#ffffff" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Reviews
-            </motion.button>
-            <motion.button 
-              onClick={() => scrollToSection("download")}
-              className="text-slate-300 hover:text-white transition-colors"
-              whileHover={{ scale: 1.05, color: "#ffffff" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Download
-            </motion.button>
+            {location === "/" ? (
+              <>
+                <motion.button 
+                  onClick={() => scrollToSection("features")}
+                  className="text-slate-300 hover:text-white transition-colors"
+                  whileHover={{ scale: 1.05, color: "#ffffff" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Features
+                </motion.button>
+                <motion.button 
+                  onClick={() => scrollToSection("testimonials")}
+                  className="text-slate-300 hover:text-white transition-colors"
+                  whileHover={{ scale: 1.05, color: "#ffffff" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Reviews
+                </motion.button>
+                <motion.button 
+                  onClick={() => scrollToSection("download")}
+                  className="text-slate-300 hover:text-white transition-colors"
+                  whileHover={{ scale: 1.05, color: "#ffffff" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Download
+                </motion.button>
+              </>
+            ) : (
+              <>
+                <Link href="/">
+                  <motion.span 
+                    className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    whileHover={{ scale: 1.05, color: "#ffffff" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Home
+                  </motion.span>
+                </Link>
+                <Link href="/pdf-library">
+                  <motion.span 
+                    className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    whileHover={{ scale: 1.05, color: "#ffffff" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    PDF Library
+                  </motion.span>
+                </Link>
+                <Link href="/blog">
+                  <motion.span 
+                    className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    whileHover={{ scale: 1.05, color: "#ffffff" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Blog
+                  </motion.span>
+                </Link>
+              </>
+            )}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
