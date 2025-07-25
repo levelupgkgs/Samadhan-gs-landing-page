@@ -32,7 +32,8 @@ A full-stack JavaScript application built with:
   - Image optimization and SEO features
 
 ## User Preferences
-- None specified yet
+- Wants to integrate Sanity.io blog system for content management
+- Prefers step-by-step guidance for technical setup
 
 ## Security Features
 - Client/server separation properly implemented
