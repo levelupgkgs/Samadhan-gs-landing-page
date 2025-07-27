@@ -34,7 +34,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
-                With Expert PDF Resources
+                With Expert Resources
               </motion.span>
             </motion.h1>
             
