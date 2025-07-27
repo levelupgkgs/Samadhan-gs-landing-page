@@ -8,8 +8,8 @@ const dataset = import.meta.env.VITE_SANITY_DATASET || 'production'
 export const client = createClient({
   projectId,
   dataset,
-  useCdn: true, // Re-enable CDN 
-  apiVersion: '2021-10-21', // Use a more stable API version
+  useCdn: true, // CDN enabled for production
+  apiVersion: '2021-10-21', // Stable API version
   ignoreBrowserTokenWarning: true,
   withCredentials: false,
 })
@@ -26,33 +26,20 @@ export function urlFor(source: any) {
 
 // Helper function to fetch blog posts
 export async function getBlogPosts() {
-  try {
-    console.log('Fetching blog posts from Sanity...')
-    // Simplified query first to test basic connectivity
-    const result = await client.fetch(`
-      *[_type == "post"] | order(publishedAt desc) {
-        _id,
-        title,
-        slug,
-        publishedAt,
-        excerpt
+  return await client.fetch(`
+    *[_type == "post"] | order(publishedAt desc) {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      excerpt,
+      mainImage,
+      author->{
+        name,
+        image
       }
-    `)
-    console.log('Blog posts fetched:', result)
-    return result
-  } catch (error) {
-    console.error('Error fetching blog posts:', error)
-    // Try even simpler query as fallback
-    try {
-      console.log('Trying fallback query...')
-      const fallback = await client.fetch(`*[_type == "post"]{_id, title}`)
-      console.log('Fallback query result:', fallback)
-      return fallback
-    } catch (fallbackError) {
-      console.error('Fallback query also failed:', fallbackError)
-      throw error
     }
-  }
+  `)
 }
 
 // Helper function to fetch a single blog post

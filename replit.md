@@ -21,6 +21,8 @@ A full-stack JavaScript application built with:
 - [2025-01-25] Integrated Sanity.io blog system with complete CMS functionality
 - [2025-01-25] Successfully set up Sanity studio with SEO-optimized blog schemas
 - [2025-01-25] Sanity studio running at localhost:3333 with Blog Post, Author, and Category types
+- [2025-01-27] Cleaned up Sanity configuration and enabled CDN for production
+- [2025-01-27] Created comprehensive documentation and GitHub setup files
 
 ## Project Architecture
 - `client/`: Frontend React application
