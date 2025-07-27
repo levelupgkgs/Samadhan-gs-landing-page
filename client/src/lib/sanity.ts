@@ -8,7 +8,7 @@ const dataset = import.meta.env.VITE_SANITY_DATASET || 'production'
 export const client = createClient({
   projectId,
   dataset,
-  useCdn: true, // Enable CDN for faster, cheaper responses
+  useCdn: false, // Disable CDN for debugging
   apiVersion: '2024-01-01', // Use current date or earlier
   perspective: 'published', // Only fetch published documents
   stega: false, // Disable preview mode
@@ -26,20 +26,28 @@ export function urlFor(source: any) {
 
 // Helper function to fetch blog posts
 export async function getBlogPosts() {
-  return await client.fetch(`
-    *[_type == "post"] | order(publishedAt desc) {
-      _id,
-      title,
-      slug,
-      publishedAt,
-      excerpt,
-      mainImage,
-      author->{
-        name,
-        image
+  try {
+    console.log('Fetching blog posts from Sanity...')
+    const result = await client.fetch(`
+      *[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
+        _id,
+        title,
+        slug,
+        publishedAt,
+        excerpt,
+        mainImage,
+        author->{
+          name,
+          image
+        }
       }
-    }
-  `)
+    `)
+    console.log('Blog posts fetched:', result)
+    return result
+  } catch (error) {
+    console.error('Error fetching blog posts:', error)
+    throw error
+  }
 }
 
 // Helper function to fetch a single blog post
