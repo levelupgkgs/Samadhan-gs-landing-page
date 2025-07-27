@@ -8,10 +8,10 @@ const dataset = import.meta.env.VITE_SANITY_DATASET || 'production'
 export const client = createClient({
   projectId,
   dataset,
-  useCdn: false, // Disable CDN for debugging
-  apiVersion: '2024-01-01', // Use current date or earlier
-  perspective: 'published', // Only fetch published documents
-  stega: false, // Disable preview mode
+  useCdn: true, // Re-enable CDN 
+  apiVersion: '2021-10-21', // Use a more stable API version
+  ignoreBrowserTokenWarning: true,
+  withCredentials: false,
 })
 
 // Get a pre-configured url-builder from your sanity client
@@ -28,25 +28,30 @@ export function urlFor(source: any) {
 export async function getBlogPosts() {
   try {
     console.log('Fetching blog posts from Sanity...')
+    // Simplified query first to test basic connectivity
     const result = await client.fetch(`
-      *[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
+      *[_type == "post"] | order(publishedAt desc) {
         _id,
         title,
         slug,
         publishedAt,
-        excerpt,
-        mainImage,
-        author->{
-          name,
-          image
-        }
+        excerpt
       }
     `)
     console.log('Blog posts fetched:', result)
     return result
   } catch (error) {
     console.error('Error fetching blog posts:', error)
-    throw error
+    // Try even simpler query as fallback
+    try {
+      console.log('Trying fallback query...')
+      const fallback = await client.fetch(`*[_type == "post"]{_id, title}`)
+      console.log('Fallback query result:', fallback)
+      return fallback
+    } catch (fallbackError) {
+      console.error('Fallback query also failed:', fallbackError)
+      throw error
+    }
   }
 }
 
