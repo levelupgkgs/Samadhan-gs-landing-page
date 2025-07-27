@@ -10,6 +10,8 @@ export const client = createClient({
   dataset,
   useCdn: true, // Enable CDN for faster, cheaper responses
   apiVersion: '2024-01-01', // Use current date or earlier
+  perspective: 'published', // Only fetch published documents
+  stega: false, // Disable preview mode
 })
 
 // Get a pre-configured url-builder from your sanity client

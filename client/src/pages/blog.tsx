@@ -58,9 +58,17 @@ export default function Blog() {
                 <h3 className="text-lg font-semibold text-red-800 dark:text-red-400 mb-2">
                   Unable to load blog posts
                 </h3>
-                <p className="text-red-600 dark:text-red-400">
-                  Please check your Sanity configuration and try again.
+                <p className="text-red-600 dark:text-red-400 mb-4">
+                  CORS configuration needed in Sanity dashboard.
                 </p>
+                <details className="text-left text-sm">
+                  <summary className="cursor-pointer text-red-700 dark:text-red-300 font-medium">
+                    Error details
+                  </summary>
+                  <pre className="mt-2 p-2 bg-red-100 dark:bg-red-950 rounded text-xs overflow-auto">
+                    {error?.message || 'Unknown error'}
+                  </pre>
+                </details>
               </div>
             </div>
           )}
