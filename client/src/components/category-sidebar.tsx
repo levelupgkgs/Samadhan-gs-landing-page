@@ -156,8 +156,8 @@ export default function CategorySidebar({ onSelectCategory, selectedCategorySlug
                           variant="ghost"
                           className={`w-full justify-start h-10 text-sm group transition-all duration-200 ${
                             selectedCategorySlug === category.slug?.current 
-                              ? 'bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm' 
-                              : ''
+                              ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-sm' 
+                              : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
                           }`}
                           onClick={() => onSelectCategory(category.slug?.current)}
                         >
@@ -166,11 +166,11 @@ export default function CategorySidebar({ onSelectCategory, selectedCategorySlug
                         </Button>
                         
                         {getSubCategories(category._id).map((subCategory: Category) => {
-                          let subCategoryClasses = `w-full justify-start h-10 text-sm group transition-all duration-200`;
-                          if (selectedCategorySlug === subCategory.slug?.current) {
-                            subCategoryClasses += ' bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm';
+                          const isSubCategorySelected = selectedCategorySlug === subCategory.slug?.current;
+                          let subCategoryClasses = `w-full justify-start h-10 text-sm group transition-all duration-200 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700`;
+                          if (isSubCategorySelected) {
+                            subCategoryClasses = 'w-full justify-start h-10 text-sm group transition-all duration-200 bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-sm';
                           }
-                          // No else branch for hover, as per user's request
 
                           return (
                             <Button
@@ -181,8 +181,8 @@ export default function CategorySidebar({ onSelectCategory, selectedCategorySlug
                             >
                               <ChevronRight className="w-3 h-3 mr-2 group-hover:translate-x-1 transition-transform" />
                               <span>{subCategory.title}</span>
-                              {selectedCategorySlug === subCategory.slug?.current && (
-                                <Badge variant="outline" className="ml-auto text-xs border-purple-300 text-purple-600 dark:border-purple-600 dark:text-purple-400">
+                              {isSubCategorySelected && (
+                                <Badge variant="outline" className="ml-auto text-xs border-white/30 text-white bg-white/20">
                                   ✓
                                 </Badge>
                               )}
