@@ -194,7 +194,7 @@ export default function Navigation() {
                   <>
                     <motion.button 
                       onClick={() => scrollToSection("features")}
-                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50 w-full"
                       whileHover={{ x: 10, color: "#ffffff" }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -202,51 +202,59 @@ export default function Navigation() {
                     </motion.button>
                     <motion.button 
                       onClick={() => scrollToSection("testimonials")}
-                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50 w-full"
                       whileHover={{ x: 10, color: "#ffffff" }}
                       whileTap={{ scale: 0.95 }}
                     >
                       Reviews
                     </motion.button>
-                    <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
-                      <motion.div 
-                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
-                        whileHover={{ x: 10, color: "#ffffff" }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Exam Analysis
-                      </motion.div>
-                    </Link>
+                    <motion.button
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.location.href = "/blog";
+                      }}
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50 w-full"
+                      whileHover={{ x: 10, color: "#ffffff" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Exam Analysis
+                    </motion.button>
                   </>
                 ) : (
                   <>
-                    <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                      <motion.div 
-                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
-                        whileHover={{ x: 10, color: "#ffffff" }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Home
-                      </motion.div>
-                    </Link>
-                    <Link href="/syllabus" onClick={() => setIsMenuOpen(false)}>
-                      <motion.div 
-                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
-                        whileHover={{ x: 10, color: "#ffffff" }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Syllabus
-                      </motion.div>
-                    </Link>
-                    <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
-                      <motion.div 
-                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
-                        whileHover={{ x: 10, color: "#ffffff" }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Blog
-                      </motion.div>
-                    </Link>
+                    <motion.button
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.location.href = "/";
+                      }}
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50 w-full"
+                      whileHover={{ x: 10, color: "#ffffff" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Home
+                    </motion.button>
+                    <motion.button
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.location.href = "/syllabus";
+                      }}
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50 w-full"
+                      whileHover={{ x: 10, color: "#ffffff" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Syllabus
+                    </motion.button>
+                    <motion.button
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.location.href = "/blog";
+                      }}
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50 w-full"
+                      whileHover={{ x: 10, color: "#ffffff" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Blog
+                    </motion.button>
                   </>
                 )}
                 <motion.div
@@ -257,8 +265,12 @@ export default function Navigation() {
                   <Button 
                     className="hero-gradient w-full shadow-lg"
                     onClick={() => {
-                      scrollToSection("download");
                       setIsMenuOpen(false);
+                      if (location !== "/") {
+                        window.location.href = "/#download";
+                      } else {
+                        scrollToSection("download");
+                      }
                     }}
                   >
                     Download
