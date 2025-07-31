@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useRoute, useLocation } from 'wouter'
 import { format } from 'date-fns'
-import { Calendar, User, ArrowLeft, Share2, BookOpen } from 'lucide-react'
+import { Calendar, User, ArrowLeft, BookOpen } from 'lucide-react'
 import { getBlogPost } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import CategorySidebar from '@/components/category-sidebar'
 import PortableText from '@/components/PortableText'
+import ShareButton from '@/components/share-button'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
@@ -237,10 +238,12 @@ export default function BlogPostPage() {
                     </div>
                   )}
 
-                  <Button variant="outline" size="sm" className="ml-auto border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white">
-                    <Share2 className="w-4 h-4 mr-2" />
-                    Share
-                  </Button>
+                  <ShareButton
+                    url={`${window.location.origin}/blog/${post.slug.current}`}
+                    title={post.title}
+                    description={post.excerpt}
+                    className="ml-auto"
+                  />
                 </div>
 
                 {/* Excerpt */}
