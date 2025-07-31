@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Send } from "lucide-react";
 import logoImage from "@assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp";
 
 export default function Footer() {
@@ -28,18 +28,46 @@ export default function Footer() {
               Your trusted companion for competitive exam preparation. Master GK/GS with our comprehensive PDF library and crack your dream exam.
             </p>
             <div className="flex space-x-4">
-              <button className="text-slate-400 hover:text-white transition-colors">
-                <Twitter className="w-5 h-5" />
-              </button>
-              <button className="text-slate-400 hover:text-white transition-colors">
+              <a 
+                href="http://facebook.com/samadhangsexam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 <Facebook className="w-5 h-5" />
-              </button>
-              <button className="text-slate-400 hover:text-white transition-colors">
+              </a>
+              <a 
+                href="https://x.com/samadhan_gs" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.instagram.com/samadhangs" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 <Instagram className="w-5 h-5" />
-              </button>
-              <button className="text-slate-400 hover:text-white transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </button>
+              </a>
+              <a 
+                href="https://www.youtube.com/@SamadhanGS" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://t.me/samadhangs" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                <Send className="w-5 h-5" />
+              </a>
             </div>
           </div>
           

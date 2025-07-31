@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Facebook, Twitter, Instagram, Youtube, Send } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import logoImage from "@assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp";
 
@@ -305,6 +305,50 @@ export default function Navigation() {
                     Download
                   </Button>
                 </motion.div>
+                
+                {/* Social Media Links in Mobile Menu */}
+                <div className="flex justify-center space-x-6 pt-4 border-t border-slate-700/50 mt-4">
+                  <a 
+                    href="http://facebook.com/samadhangsexam" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://x.com/samadhan_gs" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/samadhangs" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://www.youtube.com/@SamadhanGS" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    <Youtube className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://t.me/samadhangs" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    <Send className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
             </motion.div>
           )}
