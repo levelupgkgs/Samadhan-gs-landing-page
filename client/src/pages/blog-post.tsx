@@ -186,17 +186,18 @@ export default function BlogPostPage() {
             {/* Article */}
             <Card className="backdrop-blur-md bg-slate-800/40 border border-slate-700/50 shadow-2xl overflow-hidden">
               {post.mainImage && (
-                <div className="relative h-64 md:h-96 overflow-hidden">
+                <div className="relative h-64 md:h-96 overflow-hidden group">
                   <img
-                    src={urlFor(post.mainImage).width(1200).height(600).url()}
+                    src={urlFor(post.mainImage).width(1600).height(800).quality(90).url()}
                     alt={post.mainImage.alt || post.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10"></div>
                 </div>
               )}
 
-              <CardContent className="p-8 md:p-12">
+              <CardContent className="p-8 md:p-12 lg:p-16">
                 {/* Categories */}
                 {post.categories && post.categories.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -209,7 +210,7 @@ export default function BlogPostPage() {
                 )}
 
                 {/* Title */}
-                <h1 className="text-3xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 mb-8 leading-tight bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 bg-clip-text">
                   {post.title}
                 </h1>
 
@@ -248,14 +249,18 @@ export default function BlogPostPage() {
 
                 {/* Excerpt */}
                 {post.excerpt && (
-                  <div className="text-xl text-slate-300 mb-8 font-medium leading-relaxed">
+                  <div className="text-xl text-slate-300 mb-10 font-medium leading-relaxed bg-slate-800/30 backdrop-blur-sm border border-slate-700/30 rounded-xl p-6">
+                    <div className="flex items-center mb-2">
+                      <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full mr-3"></div>
+                      <span className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Summary</span>
+                    </div>
                     {post.excerpt}
                   </div>
                 )}
 
                 {/* Content */}
                 {post.body && (
-                  <div className="prose prose-lg prose-slate dark:prose-invert max-w-none prose-headings:text-slate-100 prose-p:text-slate-300 prose-a:text-blue-400 prose-strong:text-slate-200">
+                  <div className="max-w-none text-slate-300 leading-relaxed">
                     <PortableText value={post.body} />
                   </div>
                 )}
