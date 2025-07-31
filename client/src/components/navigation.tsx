@@ -32,18 +32,49 @@ export default function Navigation() {
   }, [location]);
 
   const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+    
     // If we're not on the home page, navigate to home first
     if (location !== "/") {
       window.location.href = `/#${sectionId}`;
-      setIsMenuOpen(false);
       return;
     }
     
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    // Add a small delay to ensure menu closes before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  };
+
+  const handleDownloadClick = () => {
     setIsMenuOpen(false);
+    
+    // Check if user is on mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Direct link to Play Store or App Store
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const playStoreUrl = "https://play.google.com/store/apps/details?id=com.samadhangs.app";
+      const appStoreUrl = "https://apps.apple.com/app/samadhan-gs/id123456789";
+      
+      window.open(isAndroid ? playStoreUrl : appStoreUrl, '_blank');
+    } else {
+      // On desktop, scroll to download section
+      if (location !== "/") {
+        window.location.href = "/#download";
+      } else {
+        setTimeout(() => {
+          const element = document.getElementById("download");
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 100);
+      }
+    }
   };
 
   return (
@@ -139,7 +170,7 @@ export default function Navigation() {
             >
               <Button 
                 className="hero-gradient hover:shadow-lg transition-all duration-300"
-                onClick={() => scrollToSection("download")}
+                onClick={handleDownloadClick}
               >
                 Download
               </Button>
@@ -264,14 +295,7 @@ export default function Navigation() {
                 >
                   <Button 
                     className="hero-gradient w-full shadow-lg"
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      if (location !== "/") {
-                        window.location.href = "/#download";
-                      } else {
-                        scrollToSection("download");
-                      }
-                    }}
+                    onClick={handleDownloadClick}
                   >
                     Download
                   </Button>
