@@ -20,6 +20,7 @@ A full-stack JavaScript application built with:
 - [2025-01-31] Express server verified running on port 5000 with full-stack integration
 - [2025-01-31] Enhanced Sanity client configuration for better CORS handling
 - [2025-01-31] Updated CORS documentation with Replit-specific domains
+- [2025-01-31] CORS configuration needed in Sanity dashboard to enable blog functionality
 - [2025-01-25] Integrated Sanity.io blog system with complete CMS functionality
 - [2025-01-25] Successfully set up Sanity studio with SEO-optimized blog schemas
 - [2025-01-27] Cleaned up Sanity configuration and enabled CDN for production

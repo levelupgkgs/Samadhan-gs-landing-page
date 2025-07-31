@@ -1,24 +1,31 @@
-# Sanity CORS Configuration
+# Sanity CORS Configuration - URGENT FIX NEEDED
 
-Your blog post exists in Sanity, but you may need to configure CORS settings to allow your website to access the data.
+The CORS error is blocking your blog from loading. Follow these steps to fix it:
 
-## Steps to fix CORS:
+## Quick Fix Steps:
 
-1. **Go to your Sanity project dashboard:**
+1. **Open Sanity Dashboard:**
    https://sanity.io/manage/personal/project/zg0tonh6
 
-2. **Navigate to API settings:**
-   - Click on your project
-   - Go to "API" tab
-   - Look for "CORS Origins"
+2. **Go to API Settings:**
+   - Click "API" in the left sidebar
+   - Find "CORS Origins" section
 
-3. **Add these origins:**
-   - `http://localhost:5000` (for development)
-   - `https://*.replit.app` (for production)
-   - `https://*.replit.dev` (for development)
-   - `https://*.replit.co` (for legacy domains)
+3. **Add ALL these domains (copy exactly):**
+   ```
+   http://localhost:5000
+   https://*.replit.app
+   https://*.replit.dev  
+   https://*.replit.co
+   *
+   ```
 
-4. **Make sure "Allow credentials" is checked**
+4. **Important Settings:**
+   - ✅ Check "Allow credentials" 
+   - ✅ Set to "No authentication required" for read operations
+
+## Current Error:
+Your website cannot access Sanity data because the domain is not whitelisted in CORS settings.
 
 ## Alternative: Make API calls publicly readable
 
