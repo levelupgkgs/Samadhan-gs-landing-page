@@ -42,7 +42,7 @@ export default function Blog() {
 
       <Navigation />
       
-      <main className="relative z-10 container mx-auto px-4 py-24">
+      <main className="relative z-10 container mx-auto px-2 py-24">
         {/* Hero Section */}
         <div className="text-center mb-20 relative">
           {/* Decorative elements */}
@@ -70,7 +70,7 @@ export default function Blog() {
         </div>
 
         {/* Main content area with sidebar and blog posts */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-full mx-auto">
           {/* Sidebar */}
           <aside className="lg:col-span-1 order-2 lg:order-1">
             <CategorySidebar
@@ -80,7 +80,7 @@ export default function Blog() {
           </aside>
 
           {/* Blog Posts Grid */}
-          <div className="lg:col-span-4 order-1 lg:order-2 grid gap-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div className="lg:col-span-3 order-1 lg:order-2 grid gap-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             {isLoading && (
               Array.from({ length: 6 }).map((_, i) => (
                 <Card key={i} className="animate-pulse backdrop-blur-sm bg-slate-800/40 border-slate-700/50">

@@ -93,7 +93,7 @@ export default function CategorySidebar({ onSelectCategory, selectedCategorySlug
         </CardTitle>
       </CardHeader>
       
-      <CardContent className="p-6 space-y-2">
+      <CardContent className="px-4 py-6 space-y-2">
         {/* All Blogs Button */}
         <Button
           variant={!selectedCategorySlug ? "default" : "ghost"}
@@ -150,15 +150,15 @@ export default function CategorySidebar({ onSelectCategory, selectedCategorySlug
                   </AccordionTrigger>
                   
                   {hasSubCategories && (
-                    <AccordionContent className="px-4 pb-3">
-                      <div className="pl-2 space-y-1 border-l-2 border-gradient-to-b from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 ml-2">
+                    <AccordionContent className="px-2 pb-3 overflow-hidden">
+                      <div className="space-y-1 border-l-2 border-gradient-to-b from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 ml-2">
                         <Button
                           variant="ghost"
-                          className={`w-full justify-start h-10 text-sm group transition-all duration-200 ${
-                            selectedCategorySlug === category.slug?.current 
-                              ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 shadow-sm' 
-                              : 'hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400'
-                          }`}
+                            className={`w-full justify-start h-10 text-sm group transition-all duration-200 ${
+                              selectedCategorySlug === subCategory.slug?.current 
+                                ? 'bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm' 
+                                : ''
+                            }`}
                           onClick={() => onSelectCategory(category.slug?.current)}
                         >
                           <ChevronRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
@@ -166,24 +166,30 @@ export default function CategorySidebar({ onSelectCategory, selectedCategorySlug
                         </Button>
                         
                         {getSubCategories(category._id).map((subCategory: Category) => (
-                          <Button
-                            key={subCategory._id}
-                            variant="ghost"
-                            className={`w-full justify-start h-10 text-sm pl-6 group transition-all duration-200 ${
-                              selectedCategorySlug === subCategory.slug?.current 
-                                ? 'bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm' 
-                                : 'hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-600 dark:hover:text-purple-400'
-                            }`}
-                            onClick={() => onSelectCategory(subCategory.slug?.current)}
-                          >
-                            <ChevronRight className="w-3 h-3 mr-2 group-hover:translate-x-1 transition-transform" />
-                            <span>{subCategory.title}</span>
-                            {selectedCategorySlug === subCategory.slug?.current && (
-                              <Badge variant="outline" className="ml-auto text-xs border-purple-300 text-purple-600 dark:border-purple-600 dark:text-purple-400">
-                                ✓
-                              </Badge>
-                            )}
-                          </Button>
+                          {(() => {
+                            let subCategoryClasses = `w-full justify-start h-10 text-sm group transition-all duration-200`;
+                            if (selectedCategorySlug === subCategory.slug?.current) {
+                              subCategoryClasses += ' bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm';
+                            }
+                            // No else branch for hover, as per user's request
+
+                            return (
+                              <Button
+                                key={subCategory._id}
+                                variant="ghost"
+                                className={subCategoryClasses}
+                                onClick={() => onSelectCategory(subCategory.slug?.current)}
+                              >
+                                <ChevronRight className="w-3 h-3 mr-2 group-hover:translate-x-1 transition-transform" />
+                                <span>{subCategory.title}</span>
+                                {selectedCategorySlug === subCategory.slug?.current && (
+                                  <Badge variant="outline" className="ml-auto text-xs border-purple-300 text-purple-600 dark:border-purple-600 dark:text-purple-400">
+                                    ✓
+                                  </Badge>
+                                )}
+                              </Button>
+                            );
+                          })()}
                         ))}
                       </div>
                     </AccordionContent>
