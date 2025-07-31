@@ -142,7 +142,7 @@ export default function FeaturesSection() {
                   <motion.img 
                     src={feature.image} 
                     alt={feature.alt}
-                    className="rounded-lg w-full h-56 object-contain bg-slate-800/30 p-4 group-hover:scale-105 transition-transform duration-300" 
+                    className="rounded-lg w-full h-56 object-contain bg-slate-800/30 py-4 group-hover:scale-105 transition-transform duration-300" 
                     whileHover={{ scale: 1.02 }}
                     loading="lazy"
                   />
