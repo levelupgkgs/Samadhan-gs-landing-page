@@ -12,6 +12,10 @@ export const client = createClient({
   apiVersion: '2021-10-21', // Stable API version
   ignoreBrowserTokenWarning: true,
   withCredentials: false,
+  perspective: 'published', // Only fetch published documents
+  stega: {
+    enabled: false,
+  }
 })
 
 // Get a pre-configured url-builder from your sanity client

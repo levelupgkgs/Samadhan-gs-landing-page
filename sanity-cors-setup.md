@@ -16,6 +16,7 @@ Your blog post exists in Sanity, but you may need to configure CORS settings to 
    - `http://localhost:5000` (for development)
    - `https://*.replit.app` (for production)
    - `https://*.replit.dev` (for development)
+   - `https://*.replit.co` (for legacy domains)
 
 4. **Make sure "Allow credentials" is checked**
 
