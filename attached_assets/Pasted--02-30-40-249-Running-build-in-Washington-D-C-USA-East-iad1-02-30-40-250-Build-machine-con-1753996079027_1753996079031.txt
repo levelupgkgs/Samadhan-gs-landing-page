@@ -1,0 +1,123 @@
+[02:30:40.249] Running build in Washington, D.C., USA (East) – iad1
+[02:30:40.250] Build machine configuration: 2 cores, 8 GB
+[02:30:40.265] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 41b0a53)
+[02:30:40.473] Previous build caches not available
+[02:30:40.639] Cloning completed: 373.000ms
+[02:30:43.031] Running "vercel build"
+[02:30:43.506] Vercel CLI 44.6.4
+[02:30:44.130] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[02:30:44.140] Running "install" command: `npm install`...
+[02:30:55.280] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[02:30:55.315] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[02:31:15.192] 
+[02:31:15.193] added 1436 packages, and audited 1437 packages in 31s
+[02:31:15.194] 
+[02:31:15.194] 201 packages are looking for funding
+[02:31:15.194]   run `npm fund` for details
+[02:31:15.305] 
+[02:31:15.305] 16 vulnerabilities (3 low, 13 moderate)
+[02:31:15.306] 
+[02:31:15.306] To address issues that do not require attention, run:
+[02:31:15.306]   npm audit fix
+[02:31:15.307] 
+[02:31:15.307] To address all issues (including breaking changes), run:
+[02:31:15.307]   npm audit fix --force
+[02:31:15.308] 
+[02:31:15.308] Run `npm audit` for details.
+[02:31:20.136] 
+[02:31:20.136] removed 2 packages, changed 1 package, and audited 1435 packages in 5s
+[02:31:20.137] 
+[02:31:20.138] 201 packages are looking for funding
+[02:31:20.138]   run `npm fund` for details
+[02:31:20.242] 
+[02:31:20.243] 15 vulnerabilities (3 low, 12 moderate)
+[02:31:20.243] 
+[02:31:20.244] To address issues that do not require attention, run:
+[02:31:20.244]   npm audit fix
+[02:31:20.244] 
+[02:31:20.244] To address all issues (including breaking changes), run:
+[02:31:20.245]   npm audit fix --force
+[02:31:20.245] 
+[02:31:20.245] Run `npm audit` for details.
+[02:31:20.380] 
+[02:31:20.381] > rest-express@1.0.0 build:sitemap
+[02:31:20.381] > npx tsx scripts/generate-sitemap.ts
+[02:31:20.381] 
+[02:31:21.069] Sitemap generated successfully at client/public/sitemap.xml
+[02:31:21.619] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[02:31:21.690] transforming...
+[02:31:22.024] 
+[02:31:22.025] [1m[33mwarn[39m[22m - The `content` option in your Tailwind CSS configuration is missing or empty.
+[02:31:22.026] [1m[33mwarn[39m[22m - Configure your content sources or your generated CSS will be missing styles.
+[02:31:22.026] [1m[33mwarn[39m[22m - https://tailwindcss.com/docs/content-configuration
+[02:31:22.364] src/components/ui/tooltip.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+[02:31:22.366] src/components/ui/tooltip.tsx (1:0): Module level directives cause errors when bundled, "use client" in "src/components/ui/tooltip.tsx" was ignored.
+[02:31:22.373] ../node_modules/@tanstack/react-query/build/modern/useQueries.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useQueries.js" was ignored.
+[02:31:22.377] ../node_modules/@tanstack/react-query/build/modern/useQuery.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useQuery.js" was ignored.
+[02:31:22.379] ../node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js" was ignored.
+[02:31:22.381] ../node_modules/@tanstack/react-query/build/modern/QueryErrorResetBoundary.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/QueryErrorResetBoundary.js" was ignored.
+[02:31:22.381] ../node_modules/@tanstack/react-query/build/modern/HydrationBoundary.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/HydrationBoundary.js" was ignored.
+[02:31:22.385] ../node_modules/@tanstack/react-query/build/modern/useMutationState.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useMutationState.js" was ignored.
+[02:31:22.386] ../node_modules/@tanstack/react-query/build/modern/useIsFetching.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useIsFetching.js" was ignored.
+[02:31:22.387] ../node_modules/@tanstack/react-query/build/modern/useMutation.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useMutation.js" was ignored.
+[02:31:22.389] ../node_modules/@tanstack/react-query/build/modern/useInfiniteQuery.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useInfiniteQuery.js" was ignored.
+[02:31:22.389] ../node_modules/@tanstack/react-query/build/modern/isRestoring.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/isRestoring.js" was ignored.
+[02:31:22.394] ../node_modules/@tanstack/react-query/build/modern/useSuspenseQuery.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useSuspenseQuery.js" was ignored.
+[02:31:22.395] ../node_modules/@tanstack/react-query/build/modern/useSuspenseInfiniteQuery.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useSuspenseInfiniteQuery.js" was ignored.
+[02:31:22.395] ../node_modules/@tanstack/react-query/build/modern/useSuspenseQueries.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useSuspenseQueries.js" was ignored.
+[02:31:22.711] ../node_modules/framer-motion/dist/es/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/index.mjs" was ignored.
+[02:31:22.746] ../node_modules/@radix-ui/react-tooltip/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-tooltip/dist/index.mjs" was ignored.
+[02:31:22.819] ../node_modules/@tanstack/react-query/build/modern/errorBoundaryUtils.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/errorBoundaryUtils.js" was ignored.
+[02:31:23.440] ../node_modules/@tanstack/react-query/build/modern/useBaseQuery.js (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@tanstack/react-query/build/modern/useBaseQuery.js" was ignored.
+[02:31:24.734] ../node_modules/framer-motion/dist/es/components/LayoutGroup/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/LayoutGroup/index.mjs" was ignored.
+[02:31:24.736] ../node_modules/framer-motion/dist/es/components/LazyMotion/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/LazyMotion/index.mjs" was ignored.
+[02:31:24.737] ../node_modules/framer-motion/dist/es/components/MotionConfig/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/MotionConfig/index.mjs" was ignored.
+[02:31:24.754] ../node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs" was ignored.
+[02:31:24.754] ../node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs" was ignored.
+[02:31:24.755] ../node_modules/framer-motion/dist/es/context/MotionContext/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/context/MotionContext/index.mjs" was ignored.
+[02:31:24.756] ../node_modules/framer-motion/dist/es/context/PresenceContext.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/context/PresenceContext.mjs" was ignored.
+[02:31:24.756] ../node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs" was ignored.
+[02:31:24.802] ../node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs" was ignored.
+[02:31:24.806] ../node_modules/@radix-ui/react-portal/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-portal/dist/index.mjs" was ignored.
+[02:31:24.807] ../node_modules/@radix-ui/react-presence/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-presence/dist/index.mjs" was ignored.
+[02:31:24.823] ../node_modules/@radix-ui/react-popper/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-popper/dist/index.mjs" was ignored.
+[02:31:24.830] ../node_modules/@radix-ui/react-toast/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-toast/dist/index.mjs" was ignored.
+[02:31:24.879] ../node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs" was ignored.
+[02:31:24.880] ../node_modules/framer-motion/dist/es/motion/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/motion/index.mjs" was ignored.
+[02:31:24.982] ../node_modules/framer-motion/dist/es/context/LazyContext.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/context/LazyContext.mjs" was ignored.
+[02:31:24.999] ../node_modules/framer-motion/dist/es/components/Reorder/Group.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/Reorder/Group.mjs" was ignored.
+[02:31:25.000] ../node_modules/framer-motion/dist/es/components/Reorder/Item.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/Reorder/Item.mjs" was ignored.
+[02:31:25.021] ../node_modules/@radix-ui/react-collection/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-collection/dist/index.mjs" was ignored.
+[02:31:25.095] ../node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs" was ignored.
+[02:31:25.101] ../node_modules/@radix-ui/react-dropdown-menu/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-dropdown-menu/dist/index.mjs" was ignored.
+[02:31:25.103] ../node_modules/@radix-ui/react-accordion/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-accordion/dist/index.mjs" was ignored.
+[02:31:25.392] ../node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs" was ignored.
+[02:31:25.398] ../node_modules/framer-motion/dist/es/context/ReorderContext.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/context/ReorderContext.mjs" was ignored.
+[02:31:25.780] ../node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs" was ignored.
+[02:31:25.807] ../node_modules/@radix-ui/react-menu/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-menu/dist/index.mjs" was ignored.
+[02:31:25.853] ../node_modules/@radix-ui/react-collapsible/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-collapsible/dist/index.mjs" was ignored.
+[02:31:26.130] ../node_modules/@radix-ui/react-focus-scope/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-focus-scope/dist/index.mjs" was ignored.
+[02:31:26.132] ../node_modules/@radix-ui/react-focus-guards/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-focus-guards/dist/index.mjs" was ignored.
+[02:31:26.133] ../node_modules/@radix-ui/react-roving-focus/dist/index.mjs (1:0): Module level directives cause errors when bundled, "use client" in "../node_modules/@radix-ui/react-roving-focus/dist/index.mjs" was ignored.
+[02:31:28.464] [32m✓[39m 2642 modules transformed.
+[02:31:28.900] rendering chunks...
+[02:31:29.205] computing gzip size...
+[02:31:29.324] [2mdist/[22m[32mindex.html                                                                      [39m[1m[2m  5.64 kB[22m[1m[22m[2m │ gzip:   1.69 kB[22m
+[02:31:29.325] [2mdist/[22m[2massets/[22m[32mWhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448-qyb03Swy.webp  [39m[1m[2m 49.70 kB[22m[1m[22m
+[02:31:29.325] [2mdist/[22m[2massets/[22m[35mindex-ZTVxXbcU.css                                                       [39m[1m[2m  7.37 kB[22m[1m[22m[2m │ gzip:   2.06 kB[22m
+[02:31:29.325] [2mdist/[22m[2massets/[22m[36mstegaEncodeSourceMap-DrGegKFw.js                                         [39m[1m[2m  7.37 kB[22m[1m[22m[2m │ gzip:   3.04 kB[22m
+[02:31:29.325] [2mdist/[22m[2massets/[22m[36mbrowser-KnHujs59.js                                                      [39m[1m[2m 12.54 kB[22m[1m[22m[2m │ gzip:   4.96 kB[22m
+[02:31:29.325] [2mdist/[22m[2massets/[22m[36mindex-ERtt-XNc.js                                                        [39m[1m[33m678.77 kB[39m[22m[2m │ gzip: 207.23 kB[22m
+[02:31:29.325] [32m✓ built in 7.66s[39m
+[02:31:29.325] [33m
+[02:31:29.325] (!) Some chunks are larger than 500 kB after minification. Consider:
+[02:31:29.325] - Using dynamic import() to code-split the application
+[02:31:29.325] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[02:31:29.325] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[02:31:29.381] Build Completed in /vercel/output [45s]
+[02:31:29.400] Deploying outputs...
+[02:31:30.775] 
+[02:31:30.909] Deployment completed
+[02:32:03.391] Uploading build cache [147.67 MB]...
+[02:32:04.894] Build cache uploaded: 1.511s
+[02:32:07.178] Exiting build container
