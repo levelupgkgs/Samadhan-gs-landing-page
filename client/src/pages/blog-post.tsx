@@ -1,20 +1,25 @@
+import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { useRoute } from 'wouter'
+import { useRoute, useLocation } from 'wouter'
 import { format } from 'date-fns'
-import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react'
+import { Calendar, User, ArrowLeft, Share2, BookOpen } from 'lucide-react'
 import { getBlogPost } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import CategorySidebar from '@/components/category-sidebar'
 import PortableText from '@/components/PortableText'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
 import { Link } from 'wouter'
 import type { BlogPost } from '@shared/sanity-schemas'
 
 export default function BlogPostPage() {
   const [match, params] = useRoute('/blog/:slug')
+  const [, setLocation] = useLocation()
   const slug = params?.slug
+  const [selectedCategorySlug, setSelectedCategorySlug] = useState<string | undefined>(undefined)
 
   const { data: post, isLoading, error } = useQuery({
     queryKey: ['blog-post', slug],
@@ -22,173 +27,258 @@ export default function BlogPostPage() {
     enabled: !!slug,
   })
 
+  // Handle category selection - navigate to blog page with category filter
+  const handleCategorySelect = (categorySlug?: string) => {
+    setLocation(categorySlug ? `/blog?category=${categorySlug}` : '/blog')
+  }
+
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="min-h-screen relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="fixed inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-green-600/20 animate-pulse"></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        </div>
+
         <Navigation />
-        <main className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto">
-            {/* Loading skeleton */}
-            <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/4 mb-8"></div>
-              <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
-              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-8"></div>
-              <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded mb-8"></div>
-              <div className="space-y-4">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
-                ))}
-              </div>
+        <main className="relative z-10 container mx-auto px-4 py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+            {/* Sidebar */}
+            <aside className="lg:col-span-1 order-2 lg:order-1">
+              <CategorySidebar
+                onSelectCategory={handleCategorySelect}
+                selectedCategorySlug={selectedCategorySlug}
+              />
+            </aside>
+
+            {/* Main Content */}
+            <div className="lg:col-span-4 order-1 lg:order-2">
+              <Card className="backdrop-blur-sm bg-slate-800/40 border-slate-700/50 shadow-xl animate-pulse">
+                <CardContent className="p-8">
+                  <div className="h-8 bg-gradient-to-r from-slate-600/50 to-slate-500/50 rounded w-1/4 mb-8"></div>
+                  <div className="h-12 bg-gradient-to-r from-slate-600/50 to-slate-500/50 rounded w-3/4 mb-4"></div>
+                  <div className="h-4 bg-gradient-to-r from-slate-600/50 to-slate-500/50 rounded w-1/2 mb-8"></div>
+                  <div className="h-64 bg-gradient-to-br from-slate-700/50 to-slate-600/50 rounded mb-8"></div>
+                  <div className="space-y-4">
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <div key={i} className="h-4 bg-gradient-to-r from-slate-600/50 to-slate-500/50 rounded"></div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </main>
-        <Footer />
+        
+        <div className="relative z-10 backdrop-blur-sm bg-slate-900/90 border-t border-slate-700/50 mt-20">
+          <Footer />
+        </div>
       </div>
     )
   }
 
   if (error || !post) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="min-h-screen relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="fixed inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-green-600/20 animate-pulse"></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        </div>
+
         <Navigation />
-        <main className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Blog Post Not Found
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
-              The blog post you're looking for doesn't exist or may have been moved.
-            </p>
-            <Link href="/blog">
-              <Button>
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
-              </Button>
-            </Link>
+        <main className="relative z-10 container mx-auto px-4 py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+            {/* Sidebar */}
+            <aside className="lg:col-span-1 order-2 lg:order-1">
+              <CategorySidebar
+                onSelectCategory={handleCategorySelect}
+                selectedCategorySlug={selectedCategorySlug}
+              />
+            </aside>
+
+            {/* Error Content */}
+            <div className="lg:col-span-4 order-1 lg:order-2">
+              <Card className="backdrop-blur-sm bg-red-900/20 border border-red-500/30 shadow-2xl">
+                <CardContent className="p-12 text-center">
+                  <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <BookOpen className="w-10 h-10 text-red-400" />
+                  </div>
+                  <h1 className="text-4xl font-bold text-red-300 mb-4">
+                    Blog Post Not Found
+                  </h1>
+                  <p className="text-red-400 text-lg mb-8 leading-relaxed">
+                    The blog post you're looking for doesn't exist or may have been moved.
+                  </p>
+                  <Link href="/blog">
+                    <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0">
+                      <ArrowLeft className="w-4 h-4 mr-2" />
+                      Back to Blog
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </main>
-        <Footer />
+        
+        <div className="relative z-10 backdrop-blur-sm bg-slate-900/90 border-t border-slate-700/50 mt-20">
+          <Footer />
+        </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-green-600/20 animate-pulse"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      </div>
+
       <Navigation />
       
-      <main className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          {/* Back button */}
-          <Link href="/blog">
-            <Button variant="ghost" className="mb-8">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Blog
-            </Button>
-          </Link>
+      <main className="relative z-10 container mx-auto px-4 py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+          {/* Sidebar */}
+          <aside className="lg:col-span-1 order-2 lg:order-1">
+            <CategorySidebar
+              onSelectCategory={handleCategorySelect}
+              selectedCategorySlug={selectedCategorySlug}
+            />
+          </aside>
 
-          {/* Article header */}
-          <article className="bg-white/80 backdrop-blur-sm dark:bg-gray-800/80 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-            {post.mainImage && (
-              <div className="relative h-64 md:h-96 overflow-hidden">
-                <img
-                  src={urlFor(post.mainImage).width(1200).height(600).url()}
-                  alt={post.mainImage.alt || post.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-            )}
+          {/* Main Content */}
+          <div className="lg:col-span-4 order-1 lg:order-2">
+            {/* Back button */}
+            <Link href="/blog">
+              <Button variant="ghost" className="mb-8 text-slate-300 hover:text-white hover:bg-slate-800/50">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Blog
+              </Button>
+            </Link>
 
-            <div className="p-8 md:p-12">
-              {/* Categories */}
-              {post.categories && post.categories.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {post.categories.map((category: any) => (
-                    <Badge key={category._id} variant="secondary">
-                      {category.parentCategory ? `${category.parentCategory.title} > ${category.title}` : category.title}
-                    </Badge>
-                  ))}
+            {/* Article */}
+            <Card className="backdrop-blur-md bg-slate-800/40 border border-slate-700/50 shadow-2xl overflow-hidden">
+              {post.mainImage && (
+                <div className="relative h-64 md:h-96 overflow-hidden">
+                  <img
+                    src={urlFor(post.mainImage).width(1200).height(600).url()}
+                    alt={post.mainImage.alt || post.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
               )}
 
-              {/* Title */}
-              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-                {post.title}
-              </h1>
-
-              {/* Meta information */}
-              <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-300 mb-8 pb-8 border-b border-gray-200 dark:border-gray-700">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
-                  <time dateTime={post.publishedAt}>
-                    {format(new Date(post.publishedAt), 'MMMM dd, yyyy')}
-                  </time>
-                </div>
-                
-                {post.author && (
-                  <div className="flex items-center gap-3">
-                    {post.author.image && (
-                      <img
-                        src={urlFor(post.author.image).width(40).height(40).url()}
-                        alt={post.author.name}
-                        className="w-10 h-10 rounded-full object-cover"
-                      />
-                    )}
-                    <div className="flex items-center gap-2">
-                      <User className="w-5 h-5" />
-                      <span className="font-medium">{post.author.name}</span>
-                    </div>
+              <CardContent className="p-8 md:p-12">
+                {/* Categories */}
+                {post.categories && post.categories.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {post.categories.map((category: any) => (
+                      <Badge key={category._id} className="bg-blue-500/20 text-blue-300 border-blue-500/30">
+                        {category.parentCategory ? `${category.parentCategory.title} > ${category.title}` : category.title}
+                      </Badge>
+                    ))}
                   </div>
                 )}
 
-                <Button variant="outline" size="sm" className="ml-auto">
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Share
-                </Button>
-              </div>
+                {/* Title */}
+                <h1 className="text-3xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight">
+                  {post.title}
+                </h1>
 
-              {/* Excerpt */}
-              {post.excerpt && (
-                <div className="text-xl text-gray-700 dark:text-gray-300 mb-8 font-medium leading-relaxed">
-                  {post.excerpt}
+                {/* Meta information */}
+                <div className="flex flex-wrap items-center gap-6 text-slate-400 mb-8 pb-8 border-b border-slate-700/50">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-5 h-5" />
+                    <time dateTime={post.publishedAt} className="text-slate-300">
+                      {format(new Date(post.publishedAt), 'MMMM dd, yyyy')}
+                    </time>
+                  </div>
+                  
+                  {post.author && (
+                    <div className="flex items-center gap-3">
+                      {post.author.image && (
+                        <img
+                          src={urlFor(post.author.image).width(40).height(40).url()}
+                          alt={post.author.name}
+                          className="w-10 h-10 rounded-full object-cover border-2 border-slate-600"
+                        />
+                      )}
+                      <div className="flex items-center gap-2">
+                        <User className="w-5 h-5" />
+                        <span className="font-medium text-slate-300">{post.author.name}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  <Button variant="outline" size="sm" className="ml-auto border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white">
+                    <Share2 className="w-4 h-4 mr-2" />
+                    Share
+                  </Button>
                 </div>
-              )}
 
-              {/* Content */}
-              {post.body && (
-                <div className="prose prose-lg prose-blue dark:prose-invert max-w-none">
-                  <PortableText value={post.body} />
-                </div>
-              )}
+                {/* Excerpt */}
+                {post.excerpt && (
+                  <div className="text-xl text-slate-300 mb-8 font-medium leading-relaxed">
+                    {post.excerpt}
+                  </div>
+                )}
 
-              {/* Author bio */}
-              {post.author && post.author.bio && (
-                <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-                  <div className="flex items-start gap-4">
-                    {post.author.image && (
-                      <img
-                        src={urlFor(post.author.image).width(80).height(80).url()}
-                        alt={post.author.name}
-                        className="w-20 h-20 rounded-full object-cover flex-shrink-0"
-                      />
-                    )}
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        About {post.author.name}
-                      </h3>
-                      <div className="text-gray-600 dark:text-gray-300 prose prose-sm dark:prose-invert">
-                        <PortableText value={post.author.bio} />
+                {/* Content */}
+                {post.body && (
+                  <div className="prose prose-lg prose-slate dark:prose-invert max-w-none prose-headings:text-slate-100 prose-p:text-slate-300 prose-a:text-blue-400 prose-strong:text-slate-200">
+                    <PortableText value={post.body} />
+                  </div>
+                )}
+
+                {/* Author bio */}
+                {post.author && post.author.bio && (
+                  <div className="mt-12 pt-8 border-t border-slate-700/50">
+                    <div className="flex items-start gap-4">
+                      {post.author.image && (
+                        <img
+                          src={urlFor(post.author.image).width(80).height(80).url()}
+                          alt={post.author.name}
+                          className="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-slate-600"
+                        />
+                      )}
+                      <div>
+                        <h3 className="text-lg font-semibold text-slate-100 mb-2">
+                          About {post.author.name}
+                        </h3>
+                        <div className="text-slate-300 prose prose-sm dark:prose-invert prose-p:text-slate-300">
+                          <PortableText value={post.author.bio} />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-          </article>
+                )}
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </main>
 
-      <Footer />
+      {/* Footer with enhanced backdrop */}
+      <div className="relative z-10 backdrop-blur-sm bg-slate-900/90 border-t border-slate-700/50 mt-20">
+        <Footer />
+      </div>
     </div>
   )
 }
