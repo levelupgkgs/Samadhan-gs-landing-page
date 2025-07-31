@@ -1,0 +1,33 @@
+[02:18:02.161] Running build in Washington, D.C., USA (East) – iad1
+[02:18:02.161] Build machine configuration: 2 cores, 8 GB
+[02:18:02.176] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 0ddc9ae)
+[02:18:02.312] Previous build caches not available
+[02:18:02.506] Cloning completed: 330.000ms
+[02:18:04.634] Running "vercel build"
+[02:18:05.131] Vercel CLI 44.6.4
+[02:18:05.735] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[02:18:06.117] 
+[02:18:06.117] > rest-express@1.0.0 build
+[02:18:06.117] > npm run build:sitemap && npx vite build
+[02:18:06.117] 
+[02:18:06.254] 
+[02:18:06.255] > rest-express@1.0.0 build:sitemap
+[02:18:06.255] > npx tsx scripts/generate-sitemap.ts
+[02:18:06.255] 
+[02:18:07.099] npm warn exec The following package was not found and will be installed: tsx@4.20.3
+[02:18:09.759] Sitemap generated successfully at client/public/sitemap.xml
+[02:18:10.390] npm warn exec The following package was not found and will be installed: vite@7.0.6
+[02:18:14.921] [31mfailed to load config from /vercel/path0/vite.config.ts[39m
+[02:18:14.922] [31merror during build:
+[02:18:14.922] Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /vercel/path0/vite.config.ts.timestamp-1753994894917-d74b588eaa183.mjs
+[02:18:14.922]     at packageResolve (node:internal/modules/esm/resolve:873:9)
+[02:18:14.922]     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+[02:18:14.922]     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+[02:18:14.922]     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+[02:18:14.922]     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+[02:18:14.923]     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+[02:18:14.923]     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+[02:18:14.923]     at ModuleJob._link (node:internal/modules/esm/module_job:130:49)[39m
+[02:18:14.958] Error: Command "npm run build" exited with 1
+[02:18:15.178] 
+[02:18:17.988] Exiting build container
