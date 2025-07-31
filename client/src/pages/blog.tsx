@@ -3,16 +3,16 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'wouter';
 import { format } from 'date-fns';
 import { Calendar, User, ArrowRight } from 'lucide-react';
-import { getBlogPosts } from '@/lib/sanity';
-import { urlFor } from '@/lib/sanity';
-import Navigation from '@/components/navigation';
-import Topbar from '@/components/topbar';
-import Footer from '@/components/footer';
-import SEOHead from '@/components/seo-head';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import CategorySidebar from '@/components/category-sidebar'; // Import the new sidebar component
+import { getBlogPosts } from './../lib/sanity';
+import { urlFor } from './../lib/sanity';
+import Navigation from './../components/navigation';
+import Topbar from '../components/topbar';
+import Footer from './../components/footer';
+import SEOHead from './../components/seo-head';
+import { Button } from './../components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './../components/ui/card';
+import { Badge } from './../components/ui/badge';
+import CategorySidebar from './../components/category-sidebar'; // Import the new sidebar component
 import type { BlogPost } from '@shared/sanity-schemas';
 
 export default function Blog() {

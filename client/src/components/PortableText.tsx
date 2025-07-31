@@ -1,5 +1,5 @@
 import { PortableText as BasePortableText } from '@portabletext/react'
-import { urlFor } from '@/lib/sanity'
+import { urlFor } from './../lib/sanity'
 
 const components = {
   types: {

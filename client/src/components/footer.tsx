@@ -1,5 +1,5 @@
 import { Facebook, Twitter, Instagram, Youtube, Send } from "lucide-react";
-import logoImage from "@assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp";
+import logoImage from "../../../attached_assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {

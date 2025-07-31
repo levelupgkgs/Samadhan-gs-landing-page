@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button } from './ui/button';
 import { BookOpen, ArrowRight, Calendar, User, BarChart3, Sparkles, TrendingUp, Target } from "lucide-react";
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
-import { getBlogPosts } from "@/lib/sanity";
-import { urlFor } from "@/lib/sanity";
+import { getBlogPosts } from './../lib/sanity';
+import { urlFor } from './../lib/sanity';
 import { format } from "date-fns";
 
 export default function BlogPreviewSection() {

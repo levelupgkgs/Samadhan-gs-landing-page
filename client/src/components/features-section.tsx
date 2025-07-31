@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Book, Heart, Download, Lightbulb, RefreshCw, BarChart3 } from "lucide-react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
+import { Button } from './ui/button';
 
 const features = [
   {

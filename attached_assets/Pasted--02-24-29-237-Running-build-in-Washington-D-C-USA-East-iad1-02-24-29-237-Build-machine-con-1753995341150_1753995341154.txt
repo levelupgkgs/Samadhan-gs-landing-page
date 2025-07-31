@@ -1,0 +1,65 @@
+[02:24:29.237] Running build in Washington, D.C., USA (East) – iad1
+[02:24:29.237] Build machine configuration: 2 cores, 8 GB
+[02:24:29.280] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 335f85d)
+[02:24:29.467] Previous build caches not available
+[02:24:29.641] Cloning completed: 361.000ms
+[02:24:31.692] Running "vercel build"
+[02:24:32.634] Vercel CLI 44.6.4
+[02:24:33.217] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[02:24:33.226] Running "install" command: `npm install`...
+[02:24:44.423] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[02:24:44.455] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[02:25:04.379] 
+[02:25:04.380] added 1436 packages, and audited 1437 packages in 31s
+[02:25:04.381] 
+[02:25:04.381] 201 packages are looking for funding
+[02:25:04.381]   run `npm fund` for details
+[02:25:04.474] 
+[02:25:04.475] 16 vulnerabilities (3 low, 13 moderate)
+[02:25:04.475] 
+[02:25:04.476] To address issues that do not require attention, run:
+[02:25:04.476]   npm audit fix
+[02:25:04.476] 
+[02:25:04.476] To address all issues (including breaking changes), run:
+[02:25:04.477]   npm audit fix --force
+[02:25:04.477] 
+[02:25:04.477] Run `npm audit` for details.
+[02:25:09.512] 
+[02:25:09.512] removed 2 packages, changed 1 package, and audited 1435 packages in 5s
+[02:25:09.512] 
+[02:25:09.512] 201 packages are looking for funding
+[02:25:09.513]   run `npm fund` for details
+[02:25:09.620] 
+[02:25:09.621] 15 vulnerabilities (3 low, 12 moderate)
+[02:25:09.621] 
+[02:25:09.622] To address issues that do not require attention, run:
+[02:25:09.622]   npm audit fix
+[02:25:09.622] 
+[02:25:09.622] To address all issues (including breaking changes), run:
+[02:25:09.622]   npm audit fix --force
+[02:25:09.622] 
+[02:25:09.622] Run `npm audit` for details.
+[02:25:09.760] 
+[02:25:09.761] > rest-express@1.0.0 build:sitemap
+[02:25:09.761] > npx tsx scripts/generate-sitemap.ts
+[02:25:09.761] 
+[02:25:10.471] Sitemap generated successfully at client/public/sitemap.xml
+[02:25:11.015] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[02:25:11.082] transforming...
+[02:25:11.363] [32m✓[39m 4 modules transformed.
+[02:25:11.369] [31mx[39m Build failed in 328ms
+[02:25:11.370] [31merror during build:
+[02:25:11.370] [31m[vite]: Rollup failed to resolve import "@/components/ui/toaster" from "/vercel/path0/client/src/App.tsx".
+[02:25:11.370] This is most likely unintended because it can break your application at runtime.
+[02:25:11.370] If you do want to externalize this module explicitly add it to
+[02:25:11.370] `build.rollupOptions.external`[31m
+[02:25:11.370]     at viteWarn (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:65839:17)
+[02:25:11.370]     at onRollupWarning (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:65871:5)
+[02:25:11.371]     at onwarn (file:///vercel/path0/node_modules/vite/dist/node/chunks/dep-C6uTJdX2.js:65534:7)
+[02:25:11.371]     at file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:20832:13
+[02:25:11.371]     at Object.logger [as onLog] (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:22698:9)
+[02:25:11.371]     at ModuleLoader.handleInvalidResolvedId (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:21444:26)
+[02:25:11.371]     at file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:21402:26[39m
+[02:25:11.388] Error: Command "npm install vite tsx && npm run build:sitemap && npx vite build" exited with 1
+[02:25:11.755] 
+[02:25:14.694] Exiting build container

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Share2, Copy, Twitter, Facebook, Linkedin, Check } from 'lucide-react'
 import { SiX } from 'react-icons/si'
-import { Button } from '@/components/ui/button'
+import { Button } from './ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { useToast } from '@/hooks/use-toast'
+} from './ui/dropdown-menu'
+import { useToast } from './../hooks/use-toast'
 
 interface ShareButtonProps {
   url: string

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
+import Navigation from './../components/navigation';
+import Footer from './../components/footer';
 
 export default function TermsOfService() {
   return (
