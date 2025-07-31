@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import logoImage from "@assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -99,7 +100,7 @@ export default function Navigation() {
                 transition={{ duration: 0.6 }}
               >
                 <img 
-                  src="/attached_assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp" 
+                  src={logoImage} 
                   alt="Samadhan GS Logo" 
                   className="w-full h-full object-cover rounded-lg"
                 />

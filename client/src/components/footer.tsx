@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import logoImage from "@assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -16,7 +17,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white/10 backdrop-blur-sm">
                 <img 
-                  src="/attached_assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp" 
+                  src={logoImage} 
                   alt="Samadhan GS Logo" 
                   className="w-full h-full object-cover rounded-lg"
                 />
