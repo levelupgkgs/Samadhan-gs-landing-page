@@ -9,25 +9,6 @@ export default function CTASection() {
     console.log("Download button clicked");
   };
 
-  const QRCodePattern = () => (
-    <div className="w-20 h-20 bg-white rounded grid grid-cols-8 grid-rows-8 gap-px p-1">
-      {[
-        1,1,1,0,0,1,1,1,
-        1,0,1,0,0,1,0,1,
-        1,0,1,1,1,1,0,1,
-        0,0,0,1,1,0,0,0,
-        0,0,0,1,1,0,0,0,
-        1,0,1,1,1,1,0,1,
-        1,0,1,0,0,1,0,1,
-        1,1,1,0,0,1,1,1
-      ].map((cell, index) => (
-        <div 
-          key={index} 
-          className={`${cell ? 'bg-black' : 'bg-white'} rounded-sm`}
-        />
-      ))}
-    </div>
-  );
 
   return (
     <section id="download" className="py-20 relative overflow-hidden">
@@ -98,44 +79,6 @@ export default function CTASection() {
             Join 50,000+ successful candidates who chose Samadhan GS for their competitive exam preparation. 
             Download now and start your journey to success.
           </motion.p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                onClick={handleDownload}
-                className="hero-gradient px-8 py-4 rounded-xl text-white font-semibold text-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <motion.div
-                  whileHover={{ rotate: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex items-center"
-                >
-                  <Smartphone className="w-6 h-6 mr-2" />
-                  Download for Android
-                </motion.div>
-              </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                variant="outline" 
-                className="border-2 border-slate-600 px-8 py-4 rounded-xl text-white font-semibold text-lg hover:bg-slate-800 transition-all duration-300"
-              >
-                View All Features
-              </Button>
-            </motion.div>
-          </motion.div>
 
           {/* App store badges and QR code */}
           <motion.div 
@@ -145,23 +88,15 @@ export default function CTASection() {
             transition={{ duration: 0.8, delay: 1 }}
             viewport={{ once: true }}
           >
-            <motion.button 
-              onClick={handleDownload}
-              className="flex items-center gap-2 bg-slate-800 px-6 py-3 rounded-lg hover:bg-slate-700 transition-colors"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <motion.div
-                whileHover={{ rotate: 15 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Smartphone className="w-8 h-8 text-white" />
-              </motion.div>
-              <div className="text-left">
-                <div className="text-xs text-slate-400">Get it on</div>
-                <div className="text-sm font-semibold text-white">Google Play</div>
-              </div>
-            </motion.button>
+            <a href="https://play.google.com/store/apps/details?id=com.gs.samadhan" target="_blank" rel="noopener noreferrer">
+              <motion.img 
+                src="/GooglePlay.webp" 
+                alt="Get it on Google Play" 
+                className="h-12 cursor-pointer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              />
+            </a>
             
             {/* QR Code */}
             <motion.div 
@@ -180,7 +115,7 @@ export default function CTASection() {
                   ease: "easeInOut"
                 }}
               >
-                <QRCodePattern />
+                <img src="/frame.webp" alt="QR Code to Download App" className="w-32 h-48 object-cover" />
               </motion.div>
               <p className="text-xs text-slate-400 mt-2 text-center">Scan to Download</p>
             </motion.div>

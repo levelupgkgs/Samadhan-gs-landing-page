@@ -25,21 +25,49 @@ export function urlFor(source: any) {
 }
 
 // Helper function to fetch blog posts
-export async function getBlogPosts() {
-  return await client.fetch(`
-    *[_type == "post"] | order(publishedAt desc) {
-      _id,
-      title,
-      slug,
-      publishedAt,
-      excerpt,
-      mainImage,
-      author->{
-        name,
-        image
-      }
-    }
-  `)
+export async function getBlogPosts(categorySlug?: string) {
+  const query = categorySlug
+    ? `*[_type == "post" && references(*[_type == "category" && slug.current == $categorySlug]._id)] | order(publishedAt desc) {
+        _id,
+        title,
+        slug,
+        publishedAt,
+        excerpt,
+        mainImage,
+        author->{
+          name,
+          image
+        },
+        categories[]->{
+          title,
+          description,
+          "parentCategory": parent->{
+            title,
+            description
+          }
+        }
+      }`
+    : `*[_type == "post"] | order(publishedAt desc) {
+        _id,
+        title,
+        slug,
+        publishedAt,
+        excerpt,
+        mainImage,
+        author->{
+          name,
+          image
+        },
+        categories[]->{
+          title,
+          description,
+          "parentCategory": parent->{
+            title,
+            description
+          }
+        }
+      }`;
+  return await client.fetch(query, { categorySlug });
 }
 
 // Helper function to fetch a single blog post
@@ -58,7 +86,14 @@ export async function getBlogPost(slug: string) {
         image,
         bio
       },
-      categories[]->
+      categories[]->{
+        title,
+        description,
+        "parentCategory": parent->{
+          title,
+          description
+        }
+      }
     }
   `, { slug })
 }
@@ -69,7 +104,12 @@ export async function getCategories() {
     *[_type == "category"] | order(title asc) {
       _id,
       title,
-      description
+      description,
+      "parentCategory": parent->{
+        _id,
+        title,
+        description
+      }
     }
   `)
 }

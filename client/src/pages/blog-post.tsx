@@ -105,7 +105,7 @@ export default function BlogPostPage() {
                 <div className="flex flex-wrap gap-2 mb-6">
                   {post.categories.map((category: any) => (
                     <Badge key={category._id} variant="secondary">
-                      {category.title}
+                      {category.parentCategory ? `${category.parentCategory.title} > ${category.title}` : category.title}
                     </Badge>
                   ))}
                 </div>

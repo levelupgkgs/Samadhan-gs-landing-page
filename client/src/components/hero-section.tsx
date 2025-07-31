@@ -4,15 +4,15 @@ import { Link } from "wouter";
 
 export default function HeroSection() {
   return (
-    <section className="pt-24 pb-20 overflow-hidden">
+    <section className="pt-24 pb-2 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
-            className="text-center lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+          <div className="text-center lg:text-left">
             <motion.h1 
               className="text-5xl lg:text-6xl font-bold mb-6 leading-tight"
               initial={{ opacity: 0, y: 30 }}
@@ -39,13 +39,12 @@ export default function HeroSection() {
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl"
+              className="text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              Crack UPSC, SSC, Banking, and other competitive exams with our comprehensive GK/GS PDF collection. 
-              Read, favorite, and download thousands of expert-curated materials.
+              Get upto 90% direct question of GK/GS in all MCQ based Government exams like SSC, Railway, Police, State PCS (pre), State and Central one day exam. Read and practice the complete syllabus of GK/GS.
             </motion.p>
             
             <motion.div 
@@ -54,6 +53,10 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
+              <a href="#download" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#download")?.scrollIntoView({ behavior: "smooth" });
+              }}>
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -62,18 +65,8 @@ export default function HeroSection() {
                   Download for Android
                 </Button>
               </motion.div>
-              <Link href="/pdf-library">
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button variant="outline" className="border-2 border-slate-600 px-8 py-4 rounded-xl text-white font-semibold text-lg hover:bg-slate-800 transition-all duration-300">
-                    Browse PDF Library
-                  </Button>
-                </motion.div>
-              </Link>
+              </a>
             </motion.div>
-            
             <motion.div 
               className="mt-8 flex items-center justify-center lg:justify-start gap-8 text-sm text-slate-400"
               initial={{ opacity: 0, y: 20 }}
@@ -108,6 +101,7 @@ export default function HeroSection() {
                 <span>10,000+ PDFs</span>
               </motion.div>
             </motion.div>
+            </div>
           </motion.div>
           
           <motion.div 
@@ -117,29 +111,13 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <motion.img 
-              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              src="/govtlogo-min.webp" 
               alt="Student studying for competitive exams with books and laptop" 
               className="rounded-2xl shadow-2xl w-full h-auto" 
               whileHover={{ scale: 1.02, rotateY: 5 }}
               transition={{ duration: 0.3 }}
             />
             
-            <motion.div 
-              className="absolute -top-8 -right-8 w-64 h-auto glass-effect border border-slate-700 rounded-2xl p-4 hidden lg:block"
-              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              whileHover={{ scale: 1.05, rotate: 2 }}
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=600" 
-                alt="Mobile app interface showing PDF books for competitive exam preparation" 
-                className="rounded-xl w-full h-auto" 
-              />
-              <div className="mt-2 text-center">
-                <p className="text-sm text-slate-300 font-medium">Samadhan GS App</p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

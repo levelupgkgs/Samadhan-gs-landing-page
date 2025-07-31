@@ -66,9 +66,9 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button className="hover:text-white transition-colors">
-                  Contact
-                </button>
+                <a href="/contact-us" className="hover:text-white transition-colors">
+                  Contact Us
+                </a>
               </li>
             </ul>
           </div>
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
-          <p>&copy; 2024 Samadhan GS. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>&copy; 2024 Samadhan GS. All rights reserved. | <a href="/privacy-policy" className="hover:underline">Privacy Policy</a> | <a href="/terms-of-service" className="hover:underline">Terms of Service</a></p>
         </div>
       </div>
     </footer>

@@ -61,14 +61,15 @@ export default function Navigation() {
                 >
                   Reviews
                 </motion.button>
-                <motion.button 
-                  onClick={() => scrollToSection("download")}
-                  className="text-slate-300 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.05, color: "#ffffff" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Download
-                </motion.button>
+                <Link href="/blog">
+                  <motion.span 
+                    className="text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    whileHover={{ scale: 1.05, color: "#ffffff" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Exam Analysis
+                  </motion.span>
+                </Link>
               </>
             ) : (
               <>
@@ -81,13 +82,13 @@ export default function Navigation() {
                     Home
                   </motion.span>
                 </Link>
-                <Link href="/pdf-library">
+                <Link href="/syllabus">
                   <motion.span 
                     className="text-slate-300 hover:text-white transition-colors cursor-pointer"
                     whileHover={{ scale: 1.05, color: "#ffffff" }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    PDF Library
+                    Syllabus
                   </motion.span>
                 </Link>
                 <Link href="/blog">
@@ -105,8 +106,11 @@ export default function Navigation() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button className="hero-gradient hover:shadow-lg transition-all duration-300">
-                Get Started
+              <Button 
+                className="hero-gradient hover:shadow-lg transition-all duration-300"
+                onClick={() => scrollToSection("download")}
+              >
+                Download
               </Button>
             </motion.div>
           </div>
@@ -171,20 +175,24 @@ export default function Navigation() {
                 >
                   Reviews
                 </motion.button>
-                <motion.button 
-                  onClick={() => scrollToSection("download")}
-                  className="text-slate-300 hover:text-white transition-colors text-left"
-                  whileHover={{ x: 10, color: "#ffffff" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Download
-                </motion.button>
+                <Link href="/blog">
+                  <motion.span 
+                    className="text-slate-300 hover:text-white transition-colors cursor-pointer text-left"
+                    whileHover={{ x: 10, color: "#ffffff" }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Exam Analysis
+                  </motion.span>
+                </Link>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Button className="hero-gradient w-full">
-                    Get Started
+                  <Button 
+                    className="hero-gradient w-full"
+                    onClick={() => scrollToSection("download")}
+                  >
+                    Download
                   </Button>
                 </motion.div>
               </div>

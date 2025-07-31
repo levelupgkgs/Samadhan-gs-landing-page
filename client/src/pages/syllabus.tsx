@@ -44,7 +44,7 @@ interface Category {
   subcategories: SubCategory[];
 }
 
-export default function PDFLibrary() {
+export default function Syllabus() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [selectedSubCategory, setSelectedSubCategory] = useState("All");
@@ -56,7 +56,7 @@ export default function PDFLibrary() {
     queryFn: async (): Promise<Category[]> => {
       const response = await fetch('https://server.samadhangs.com/api/landing-page');
       if (!response.ok) {
-        throw new Error('Failed to fetch PDF library data');
+        throw new Error('Failed to fetch syllabus data');
       }
       return await response.json();
     }
@@ -152,7 +152,7 @@ export default function PDFLibrary() {
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="w-8 h-8 animate-spin text-primary mx-auto mb-4" />
-          <p className="text-white">Loading PDF Library...</p>
+          <p className="text-white">Loading Syllabus...</p>
         </div>
       </div>
     );
@@ -162,7 +162,7 @@ export default function PDFLibrary() {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-red-400 mb-4">Failed to load PDF library data</p>
+          <p className="text-red-400 mb-4">Failed to load syllabus data</p>
           <p className="text-slate-400">Please check your internet connection and try again</p>
         </div>
       </div>
@@ -213,7 +213,7 @@ export default function PDFLibrary() {
               <div className="h-6 w-px bg-slate-600"></div>
               <div className="flex items-center space-x-2">
                 <Book className="w-6 h-6 text-primary" />
-                <h1 className="text-xl font-bold text-white">PDF Library</h1>
+                <h1 className="text-xl font-bold text-white">Syllabus</h1>
               </div>
             </div>
           </div>

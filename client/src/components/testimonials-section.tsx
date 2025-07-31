@@ -23,51 +23,43 @@ export default function TestimonialsSection() {
         const mockTestimonials: Testimonial[] = [
           {
             id: 1,
-            name: "Priya Sharma",
-            role: "UPSC CSE 2023 Qualifier",
-            content: "Samadhan GS completely transformed my UPSC preparation. The PDF collection is comprehensive and the offline download feature helped me study during my daily commute. Cleared prelims on my second attempt!",
+            name: "",
+            role: "",
+            content: "✅ “Scored 92% in GK/GS in SSC CGL! The topic-wise practice and analysis really worked.”",
             rating: 5,
-            avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=40&h=40"
+            avatar: ""
           },
           {
             id: 2,
-            name: "Rahul Kumar",
-            role: "SSC CGL 2023 Selected",
-            content: "The quality of GS content is exceptional. I especially loved the favorites feature which helped me organize important topics. Got selected in SSC CGL with a good rank. Highly recommended!",
+            name: "",
+            role: "",
+            content: "✅ “Cleared Bihar SI thanks to deep GK prep—modern history and polity were spot on!”",
             rating: 5,
-            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=40&h=40"
+            avatar: ""
           },
           {
             id: 3,
-            name: "Anjali Verma",
-            role: "IBPS PO 2023 Selected",
-            content: "Amazing app for banking exam preparation! The content is always updated with latest patterns. The progress tracking motivated me to stay consistent. Cleared IBPS PO in first attempt.",
+            name: "",
+            role: "",
+            content: "✅ “Scored 94% in GK/GS in UPSSSC PET. The exam-specific strategy was a game changer!”",
             rating: 5,
-            avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=40&h=40"
+            avatar: ""
           },
           {
             id: 4,
-            name: "Vikash Singh",
-            role: "Railway Group D Selected",
-            content: "Perfect for railway exam preparation. The subject-wise organization and expert-curated content saved me months of research. The app is user-friendly and works great offline too.",
+            name: "",
+            role: "",
+            content: "✅ “Focused only on GS this time and cracked CTET in the first attempt!”",
             rating: 5,
-            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=40&h=40"
+            avatar: ""
           },
           {
             id: 5,
-            name: "Deepika Jain",
-            role: "State PSC 2023 Qualified",
-            content: "The regular content updates kept me ahead of the competition. Current affairs section is particularly helpful. Used it throughout my preparation and finally cracked state PSC. Thank you team!",
+            name: "",
+            role: "",
+            content: "✅ “Every review is proof that GK/GS success is possible with the right plan.”",
             rating: 5,
-            avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=40&h=40"
-          },
-          {
-            id: 6,
-            name: "Amit Patel",
-            role: "Multi-Exam Qualifier",
-            content: "Best investment for competitive exam preparation. The variety of content covers all major exams. Smart favorites feature helped me create my own study plan. Cleared multiple exams using this app.",
-            rating: 5,
-            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=40&h=40"
+            avatar: ""
           }
         ];
         
@@ -91,7 +83,7 @@ export default function TestimonialsSection() {
               <span className="text-white">What Our</span>
               <br />
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Successful Students Say
+                Aspirants Say
               </span>
             </h2>
           </div>
@@ -163,7 +155,7 @@ export default function TestimonialsSection() {
             <span className="text-white">What Our</span>
             <br />
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Successful Students Say
+              Aspirants Say
             </span>
           </motion.h2>
           <motion.p 
@@ -231,13 +223,6 @@ export default function TestimonialsSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
                 viewport={{ once: true }}
               >
-                <motion.img 
-                  src={testimonial.avatar} 
-                  alt={`${testimonial.name} - success story`}
-                  className="w-10 h-10 rounded-full mr-3" 
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                />
                 <div>
                   <h4 className="font-semibold text-white">{testimonial.name}</h4>
                   <p className="text-sm text-slate-400">{testimonial.role}</p>
@@ -249,21 +234,19 @@ export default function TestimonialsSection() {
 
         {/* Stats Section */}
         <motion.div 
-          className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8"
+          className="mt-16 flex justify-center"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
           {[
-            { value: "50K+", label: "Happy Users", gradient: "from-primary to-secondary" },
-            { value: "10K+", label: "PDF Books", gradient: "from-secondary to-accent" },
-            { value: "95%", label: "Success Rate", gradient: "from-accent to-primary" },
-            { value: "4.8★", label: "App Rating", gradient: "from-primary to-accent" }
+            { value: "Complete syllabus", label: "", gradient: "from-primary to-secondary" },
+            { value: "500+ Notes", label: "", gradient: "from-secondary to-accent" },
           ].map((stat, index) => (
             <motion.div 
               key={index}
-              className="text-center"
+              className="text-center mx-2"
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
