@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -7,8 +7,38 @@ import { Link, useLocation } from "wouter";
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location] = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
 
   const scrollToSection = (sectionId: string) => {
+    // If we're not on the home page, navigate to home first
+    if (location !== "/") {
+      window.location.href = `/#${sectionId}`;
+      setIsMenuOpen(false);
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -18,6 +48,7 @@ export default function Navigation() {
 
   return (
     <motion.nav 
+      ref={menuRef}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -156,41 +187,79 @@ export default function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden absolute top-full left-0 right-0 glass-effect border-b border-slate-800 py-4"
+              className="md:hidden absolute top-full left-0 right-0 backdrop-blur-xl bg-slate-900/95 border-b border-slate-700/50 py-6 shadow-2xl"
             >
-              <div className="flex flex-col space-y-4 px-4">
-                <motion.button 
-                  onClick={() => scrollToSection("features")}
-                  className="text-slate-300 hover:text-white transition-colors text-left"
-                  whileHover={{ x: 10, color: "#ffffff" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Features
-                </motion.button>
-                <motion.button 
-                  onClick={() => scrollToSection("testimonials")}
-                  className="text-slate-300 hover:text-white transition-colors text-left"
-                  whileHover={{ x: 10, color: "#ffffff" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Reviews
-                </motion.button>
-                <Link href="/blog">
-                  <motion.span 
-                    className="text-slate-300 hover:text-white transition-colors cursor-pointer text-left"
-                    whileHover={{ x: 10, color: "#ffffff" }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Exam Analysis
-                  </motion.span>
-                </Link>
+              <div className="flex flex-col space-y-4 px-6">
+                {location === "/" ? (
+                  <>
+                    <motion.button 
+                      onClick={() => scrollToSection("features")}
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                      whileHover={{ x: 10, color: "#ffffff" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Features
+                    </motion.button>
+                    <motion.button 
+                      onClick={() => scrollToSection("testimonials")}
+                      className="text-slate-200 hover:text-white transition-colors text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                      whileHover={{ x: 10, color: "#ffffff" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Reviews
+                    </motion.button>
+                    <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
+                      <motion.div 
+                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                        whileHover={{ x: 10, color: "#ffffff" }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Exam Analysis
+                      </motion.div>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                      <motion.div 
+                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                        whileHover={{ x: 10, color: "#ffffff" }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Home
+                      </motion.div>
+                    </Link>
+                    <Link href="/syllabus" onClick={() => setIsMenuOpen(false)}>
+                      <motion.div 
+                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                        whileHover={{ x: 10, color: "#ffffff" }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Syllabus
+                      </motion.div>
+                    </Link>
+                    <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
+                      <motion.div 
+                        className="text-slate-200 hover:text-white transition-colors cursor-pointer text-left py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                        whileHover={{ x: 10, color: "#ffffff" }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Blog
+                      </motion.div>
+                    </Link>
+                  </>
+                )}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  className="pt-2"
                 >
                   <Button 
-                    className="hero-gradient w-full"
-                    onClick={() => scrollToSection("download")}
+                    className="hero-gradient w-full shadow-lg"
+                    onClick={() => {
+                      scrollToSection("download");
+                      setIsMenuOpen(false);
+                    }}
                   >
                     Download
                   </Button>
