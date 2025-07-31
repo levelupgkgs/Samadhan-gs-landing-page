@@ -8,7 +8,7 @@ import { urlFor } from "@/lib/sanity";
 import { format } from "date-fns";
 
 export default function BlogPreviewSection() {
-  const { data: posts, isLoading } = useQuery({
+  const { data: posts, isLoading, error } = useQuery({
     queryKey: ['blog-posts-preview'],
     queryFn: () => getBlogPosts(),
   });
