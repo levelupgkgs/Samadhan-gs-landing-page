@@ -37,9 +37,9 @@ export default function Blog() {
         </div>
 
         {/* Main content area with sidebar and blog posts */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
           {/* Sidebar */}
-          <aside className="md:col-span-1">
+          <aside className="lg:col-span-1 order-2 lg:order-1">
             <CategorySidebar
               onSelectCategory={setSelectedCategorySlug}
               selectedCategorySlug={selectedCategorySlug}
@@ -47,7 +47,7 @@ export default function Blog() {
           </aside>
 
           {/* Blog Posts Grid */}
-          <div className="md:col-span-3 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="lg:col-span-4 order-1 lg:order-2 grid gap-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             {isLoading && (
               Array.from({ length: 6 }).map((_, i) => (
                 <Card key={i} className="animate-pulse">
