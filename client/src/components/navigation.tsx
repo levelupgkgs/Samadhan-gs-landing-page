@@ -94,11 +94,15 @@ export default function Navigation() {
               whileTap={{ scale: 0.95 }}
             >
               <motion.div 
-                className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center"
+                className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white/10 backdrop-blur-sm"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="text-white font-bold text-sm">S</span>
+                <img 
+                  src="/attached_assets/WhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448.webp" 
+                  alt="Samadhan GS Logo" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </motion.div>
               <span className="text-xl font-bold text-white">Samadhan GS</span>
             </motion.div>
