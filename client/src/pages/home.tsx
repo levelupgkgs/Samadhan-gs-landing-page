@@ -12,7 +12,9 @@ export default function Home() {
     <div className="min-h-screen gradient-bg">
       <Topbar />
       <Navigation />
-      <HeroSection />
+      <div className="pt-12 md:pt-28">
+        <HeroSection />
+      </div>
       <FeaturesSection />
       <BlogPreviewSection />
       <TestimonialsSection />
