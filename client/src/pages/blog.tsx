@@ -7,6 +7,7 @@ import { getBlogPosts } from '@/lib/sanity';
 import { urlFor } from '@/lib/sanity';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
+import SEOHead from '@/components/seo-head';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -23,6 +24,13 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <SEOHead
+        title="Samadhan GS Blog - Competitive Exam Analysis & Study Tips"
+        description="Get expert insights, exam analysis, and preparation tips for UPSC, SSC, Banking, and Railway exams. Latest current affairs, study strategies, and success stories."
+        keywords="competitive exam blog, UPSC analysis, SSC tips, banking exam strategy, railway jobs, current affairs, exam preparation, study guides, government jobs"
+        url="https://samadhang.replit.app/blog"
+        type="website"
+      />
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10">
         {/* Base gradient */}

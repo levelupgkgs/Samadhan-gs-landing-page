@@ -10,6 +10,8 @@ import Footer from '@/components/footer'
 import CategorySidebar from '@/components/category-sidebar'
 import PortableText from '@/components/PortableText'
 import ShareButton from '@/components/share-button'
+import SEOHead from '@/components/seo-head'
+import { BlogPostStructuredData } from '@/components/structured-data'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
@@ -151,6 +153,27 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <SEOHead
+        title={post ? `${post.title} | Samadhan GS Blog` : "Blog Post | Samadhan GS"}
+        description={post?.excerpt || "Expert insights and analysis for competitive exam preparation at Samadhan GS."}
+        keywords={`${post?.categories?.map(cat => cat.title).join(', ') || ''}, competitive exams, UPSC, SSC, banking exams, exam analysis, study tips`}
+        url={`https://samadhang.replit.app/blog/${slug || ''}`}
+        type="article"
+        publishedTime={post?.publishedAt}
+        author={post?.author?.name}
+        section="Education"
+        tags={post?.categories?.map(cat => cat.title) || []}
+        image={post?.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined}
+      />
+      <BlogPostStructuredData
+        title={post?.title || "Blog Post"}
+        description={post?.excerpt || "Expert insights for competitive exam preparation"}
+        url={`https://samadhang.replit.app/blog/${slug || ''}`}
+        image={post?.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined}
+        publishedTime={post?.publishedAt}
+        author={post?.author?.name}
+        category={post?.categories?.[0]?.title}
+      />
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
