@@ -1,8 +1,36 @@
 import { Facebook, Twitter, Instagram, Youtube, Send } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Topbar() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlTopbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 10) {
+        // Always show topbar when at the top
+        setIsVisible(true);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px
+        setIsVisible(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlTopbar);
+    return () => window.removeEventListener('scroll', controlTopbar);
+  }, [lastScrollY]);
+
   return (
-    <div className="hidden md:block bg-slate-900/95 border-b border-slate-800/50 py-3 fixed top-0 left-0 right-0 z-40 h-12">
+    <div className={`hidden md:block bg-slate-900/95 border-b border-slate-800/50 py-3 fixed top-0 left-0 right-0 z-40 h-12 transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center text-sm">
           <div className="text-slate-300">
