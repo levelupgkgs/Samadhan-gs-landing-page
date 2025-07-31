@@ -120,7 +120,7 @@ export default function FeaturesSection() {
             const FeatureCard = (
               <motion.div 
                 key={index} 
-                className={`card-gradient glass-effect border border-slate-700 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 group`}
+                className={`card-gradient glass-effect border border-slate-700 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 group h-full flex flex-col`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -137,13 +137,16 @@ export default function FeaturesSection() {
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
-                <div className="text-slate-300 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: feature.description }} />
-                <motion.img 
-                  src={feature.image} 
-                  alt={feature.alt}
-                  className="rounded-lg w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" 
-                  whileHover={{ scale: 1.1 }}
-                />
+                <div className="text-slate-300 leading-relaxed mb-6 flex-grow" dangerouslySetInnerHTML={{ __html: feature.description }} />
+                <div className="mt-auto">
+                  <motion.img 
+                    src={feature.image} 
+                    alt={feature.alt}
+                    className="rounded-lg w-full h-56 object-contain bg-slate-800/30 p-4 group-hover:scale-105 transition-transform duration-300" 
+                    whileHover={{ scale: 1.02 }}
+                    loading="lazy"
+                  />
+                </div>
               </motion.div>
             );
             
