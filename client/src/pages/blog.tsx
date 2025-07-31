@@ -6,6 +6,7 @@ import { Calendar, User, ArrowRight } from 'lucide-react';
 import { getBlogPosts } from '@/lib/sanity';
 import { urlFor } from '@/lib/sanity';
 import Navigation from '@/components/navigation';
+import Topbar from '@/components/topbar';
 import Footer from '@/components/footer';
 import SEOHead from '@/components/seo-head';
 import { Button } from '@/components/ui/button';
@@ -48,9 +49,10 @@ export default function Blog() {
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       </div>
 
+      <Topbar />
       <Navigation />
       
-      <main className="relative z-10 container mx-auto px-2 py-24">
+      <main className="relative z-10 container mx-auto px-2 py-24 pt-48">
         {/* Hero Section */}
         <div className="text-center mb-20 relative">
           {/* Decorative elements */}

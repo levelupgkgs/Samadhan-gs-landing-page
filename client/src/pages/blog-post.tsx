@@ -6,6 +6,7 @@ import { Calendar, User, ArrowLeft, BookOpen } from 'lucide-react'
 import { getBlogPost } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import Navigation from '@/components/navigation'
+import Topbar from '@/components/topbar'
 import Footer from '@/components/footer'
 import CategorySidebar from '@/components/category-sidebar'
 import PortableText from '@/components/PortableText'
@@ -58,9 +59,10 @@ export default function BlogPostPage() {
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         </div>
 
+        <Topbar />
         <Navigation />
-        <main className="relative z-10 container mx-auto px-4 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+        <main className="relative z-10 container mx-auto px-2 py-24 pt-48">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-full mx-auto">
             {/* Sidebar */}
             <aside className="lg:col-span-1 order-2 lg:order-1">
               <CategorySidebar
@@ -70,7 +72,7 @@ export default function BlogPostPage() {
             </aside>
 
             {/* Main Content */}
-            <div className="lg:col-span-4 order-1 lg:order-2">
+            <div className="lg:col-span-3 order-1 lg:order-2">
               <Card className="backdrop-blur-sm bg-slate-800/40 border-slate-700/50 shadow-xl animate-pulse">
                 <CardContent className="p-8">
                   <div className="h-8 bg-gradient-to-r from-slate-600/50 to-slate-500/50 rounded w-1/4 mb-8"></div>
@@ -108,9 +110,10 @@ export default function BlogPostPage() {
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         </div>
 
+        <Topbar />
         <Navigation />
-        <main className="relative z-10 container mx-auto px-4 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+        <main className="relative z-10 container mx-auto px-2 py-24 pt-48">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-full mx-auto">
             {/* Sidebar */}
             <aside className="lg:col-span-1 order-2 lg:order-1">
               <CategorySidebar
@@ -120,7 +123,7 @@ export default function BlogPostPage() {
             </aside>
 
             {/* Error Content */}
-            <div className="lg:col-span-4 order-1 lg:order-2">
+            <div className="lg:col-span-3 order-1 lg:order-2">
               <Card className="backdrop-blur-sm bg-red-900/20 border border-red-500/30 shadow-2xl">
                 <CardContent className="p-12 text-center">
                   <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -156,13 +159,13 @@ export default function BlogPostPage() {
       <SEOHead
         title={post ? `${post.title} | Samadhan GS Blog` : "Blog Post | Samadhan GS"}
         description={post?.excerpt || "Expert insights and analysis for competitive exam preparation at Samadhan GS."}
-        keywords={`${post?.categories?.map(cat => cat.title).join(', ') || ''}, competitive exams, UPSC, SSC, banking exams, exam analysis, study tips`}
+        keywords={`${post?.categories?.map((cat: any) => cat.title).join(', ') || ''}, competitive exams, UPSC, SSC, banking exams, exam analysis, study tips`}
         url={`https://samadhang.replit.app/blog/${slug || ''}`}
         type="article"
         publishedTime={post?.publishedAt}
         author={post?.author?.name}
         section="Education"
-        tags={post?.categories?.map(cat => cat.title) || []}
+        tags={post?.categories?.map((cat: any) => cat.title) || []}
         image={post?.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined}
       />
       <BlogPostStructuredData
@@ -184,10 +187,11 @@ export default function BlogPostPage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       </div>
 
+      <Topbar />
       <Navigation />
       
-      <main className="relative z-10 container mx-auto px-4 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+      <main className="relative z-10 container mx-auto px-2 py-24 pt-48">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-full mx-auto">
           {/* Sidebar */}
           <aside className="lg:col-span-1 order-2 lg:order-1">
             <CategorySidebar
@@ -197,7 +201,7 @@ export default function BlogPostPage() {
           </aside>
 
           {/* Main Content */}
-          <div className="lg:col-span-4 order-1 lg:order-2">
+          <div className="lg:col-span-3 order-1 lg:order-2">
             {/* Back button */}
             <Link href="/blog">
               <Button variant="ghost" className="mb-8 text-slate-300 hover:text-white hover:bg-slate-800/50">
