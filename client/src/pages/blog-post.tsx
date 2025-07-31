@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useRoute, useLocation } from 'wouter'
 import { format } from 'date-fns'
@@ -26,6 +26,16 @@ export default function BlogPostPage() {
     queryFn: () => getBlogPost(slug!),
     enabled: !!slug,
   })
+
+  // Set the selected category based on the post's first category
+  useEffect(() => {
+    if (post?.categories && post.categories.length > 0) {
+      // Use the first category's slug, or parent category if it exists
+      const firstCategory = post.categories[0]
+      const categorySlug = firstCategory.parentCategory?.slug?.current || firstCategory.slug?.current
+      setSelectedCategorySlug(categorySlug)
+    }
+  }, [post])
 
   // Handle category selection - navigate to blog page with category filter
   const handleCategorySelect = (categorySlug?: string) => {

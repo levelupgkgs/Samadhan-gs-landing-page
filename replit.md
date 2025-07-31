@@ -21,6 +21,8 @@ A full-stack JavaScript application built with:
 - [2025-01-31] All dependencies resolved and tsx compilation working properly
 - [2025-01-31] Express server verified running on port 5000 with full-stack integration
 - [2025-01-31] Applied proper client/server separation and security practices
+- [2025-01-31] Fixed single blog post sidebar to match blog listing page styling and behavior
+- [2025-01-31] Enhanced category selection state management for consistent sidebar appearance
 - [2025-01-31] Transformed blog section into "Exam Analysis" with stunning dark theme design
 - [2025-01-31] Enhanced hero section with intelligent download button behavior (app stores on mobile, scroll on desktop)  
 - [2025-01-31] Fixed features section image alignment and cropping issues with responsive design

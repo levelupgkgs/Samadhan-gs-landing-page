@@ -91,11 +91,15 @@ export async function getBlogPost(slug: string) {
         bio
       },
       categories[]->{
+        _id,
         title,
         description,
+        slug,
         "parentCategory": parent->{
+          _id,
           title,
-          description
+          description,
+          slug
         }
       }
     }
