@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm install && npm run build:sitemap && SKIP_ENV_VALIDATION=true npx vite build --config vite.config.ts",
+  "buildCommand": "npm install && npm run build:sitemap && SKIP_ENV_VALIDATION=true npx vite build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "rewrites": [

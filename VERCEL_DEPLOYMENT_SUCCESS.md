@@ -56,7 +56,7 @@ dist/assets/index-[hash].js       678.77 kB │ gzip: 206.70 kB
 ### Updated `vercel.json`:
 ```json
 {
-  "buildCommand": "npm install && npm run build:sitemap && SKIP_ENV_VALIDATION=true npx vite build --config vite.config.ts",
+  "buildCommand": "npm install && npm run build:sitemap && SKIP_ENV_VALIDATION=true npx vite build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "rewrites": [

@@ -1,0 +1,63 @@
+[02:50:12.995] Running build in Washington, D.C., USA (East) – iad1
+[02:50:12.996] Build machine configuration: 2 cores, 8 GB
+[02:50:13.011] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: a7f2d0c)
+[02:50:13.361] Cloning completed: 349.000ms
+[02:50:15.338] Restored build cache from previous deployment (sS5J8LXnpqwLXuSZMYGSq1bu9NTq)
+[02:50:18.189] Running "vercel build"
+[02:50:18.656] Vercel CLI 44.6.4
+[02:50:19.236] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[02:50:19.246] Running "install" command: `npm install`...
+[02:50:24.013] 
+[02:50:24.014] added 2 packages, changed 1 package, and audited 1437 packages in 5s
+[02:50:24.015] 
+[02:50:24.015] 201 packages are looking for funding
+[02:50:24.016]   run `npm fund` for details
+[02:50:24.108] 
+[02:50:24.109] 16 vulnerabilities (3 low, 13 moderate)
+[02:50:24.109] 
+[02:50:24.110] To address issues that do not require attention, run:
+[02:50:24.110]   npm audit fix
+[02:50:24.111] 
+[02:50:24.111] To address all issues (including breaking changes), run:
+[02:50:24.111]   npm audit fix --force
+[02:50:24.111] 
+[02:50:24.112] Run `npm audit` for details.
+[02:50:27.064] 
+[02:50:27.064] up to date, audited 1437 packages in 3s
+[02:50:27.065] 
+[02:50:27.065] 201 packages are looking for funding
+[02:50:27.065]   run `npm fund` for details
+[02:50:27.162] 
+[02:50:27.163] 16 vulnerabilities (3 low, 13 moderate)
+[02:50:27.163] 
+[02:50:27.164] To address issues that do not require attention, run:
+[02:50:27.164]   npm audit fix
+[02:50:27.164] 
+[02:50:27.164] To address all issues (including breaking changes), run:
+[02:50:27.165]   npm audit fix --force
+[02:50:27.165] 
+[02:50:27.165] Run `npm audit` for details.
+[02:50:27.654] 
+[02:50:27.655] > rest-express@1.0.0 build:sitemap
+[02:50:27.655] > npx tsx scripts/generate-sitemap.ts
+[02:50:27.655] 
+[02:50:29.019] Sitemap generated successfully at client/public/sitemap.xml
+[02:50:29.606] ✘ [ERROR] Could not resolve "/vercel/path0/client/vite.config.ts"
+[02:50:29.606] 
+[02:50:29.609] [31mfailed to load config from /vercel/path0/client/vite.config.ts[39m
+[02:50:29.610] [31merror during build:
+[02:50:29.610] Error: Build failed with 1 error:
+[02:50:29.610] error: Could not resolve "/vercel/path0/client/vite.config.ts"
+[02:50:29.610]     at failureErrorWithLog (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:1472:15)
+[02:50:29.611]     at /vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:945:25
+[02:50:29.611]     at runOnEndCallbacks (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:1315:45)
+[02:50:29.611]     at buildResponseToResult (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:943:7)
+[02:50:29.611]     at /vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:970:16
+[02:50:29.611]     at responseCallbacks.<computed> (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:622:9)
+[02:50:29.611]     at handleIncomingPacket (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:677:12)
+[02:50:29.611]     at Socket.readFromStdout (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:600:7)
+[02:50:29.612]     at Socket.emit (node:events:524:28)
+[02:50:29.612]     at addChunk (node:internal/streams/readable:561:12)[39m
+[02:50:29.629] Error: Command "npm install && npm run build:sitemap && SKIP_ENV_VALIDATION=true npx vite build --config vite.config.ts" exited with 1
+[02:50:30.139] 
+[02:50:33.204] Exiting build container
