@@ -40,15 +40,43 @@ dist/assets/index-[hash].css        7.37 kB │ gzip: 2.06 kB
 dist/assets/index-[hash].js       678.77 kB │ gzip: 206.70 kB
 ```
 
+## Fixed Configuration
+
+### Updated `vercel.json`:
+```json
+{
+  "framework": null,
+  "buildCommand": "npm install vite tsx && npm run build:sitemap && cd client && SKIP_ENV_VALIDATION=true npx vite build",
+  "outputDirectory": "client/dist",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/((?!api).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+### Key Configuration Changes:
+1. **Build Directory**: Changed from `dist/public` to `client/dist`
+2. **Build Command**: Added `cd client &&` to run Vite build in correct directory  
+3. **SPA Routing**: Proper rewrites for single-page application routing
+4. **Asset Handling**: All static assets properly included in build output
+
 ## Next Steps for Deployment
 1. **Commit and push changes**:
    ```bash
    git add .
-   git commit -m "Fix Vercel deployment - resolve import paths and build issues"
+   git commit -m "Fix Vercel deployment - resolve SPA routing and build directory"
    git push origin master
    ```
 
-2. **Deploy on Vercel** - The deployment should now succeed with the updated build configuration.
+2. **Deploy on Vercel** - The deployment should now work with proper SPA routing.
 
 ## Files Modified
 - `vercel.json` - Updated build command
