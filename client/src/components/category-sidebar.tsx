@@ -154,43 +154,41 @@ export default function CategorySidebar({ onSelectCategory, selectedCategorySlug
                       <div className="space-y-1 border-l-2 border-gradient-to-b from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 ml-2">
                         <Button
                           variant="ghost"
-                            className={`w-full justify-start h-10 text-sm group transition-all duration-200 ${
-                              selectedCategorySlug === subCategory.slug?.current 
-                                ? 'bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm' 
-                                : ''
-                            }`}
+                          className={`w-full justify-start h-10 text-sm group transition-all duration-200 ${
+                            selectedCategorySlug === category.slug?.current 
+                              ? 'bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm' 
+                              : ''
+                          }`}
                           onClick={() => onSelectCategory(category.slug?.current)}
                         >
                           <ChevronRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                           <span>All {category.title}</span>
                         </Button>
                         
-                        {getSubCategories(category._id).map((subCategory: Category) => (
-                          {(() => {
-                            let subCategoryClasses = `w-full justify-start h-10 text-sm group transition-all duration-200`;
-                            if (selectedCategorySlug === subCategory.slug?.current) {
-                              subCategoryClasses += ' bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm';
-                            }
-                            // No else branch for hover, as per user's request
+                        {getSubCategories(category._id).map((subCategory: Category) => {
+                          let subCategoryClasses = `w-full justify-start h-10 text-sm group transition-all duration-200`;
+                          if (selectedCategorySlug === subCategory.slug?.current) {
+                            subCategoryClasses += ' bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 shadow-sm';
+                          }
+                          // No else branch for hover, as per user's request
 
-                            return (
-                              <Button
-                                key={subCategory._id}
-                                variant="ghost"
-                                className={subCategoryClasses}
-                                onClick={() => onSelectCategory(subCategory.slug?.current)}
-                              >
-                                <ChevronRight className="w-3 h-3 mr-2 group-hover:translate-x-1 transition-transform" />
-                                <span>{subCategory.title}</span>
-                                {selectedCategorySlug === subCategory.slug?.current && (
-                                  <Badge variant="outline" className="ml-auto text-xs border-purple-300 text-purple-600 dark:border-purple-600 dark:text-purple-400">
-                                    ✓
-                                  </Badge>
-                                )}
-                              </Button>
-                            );
-                          })()}
-                        ))}
+                          return (
+                            <Button
+                              key={subCategory._id}
+                              variant="ghost"
+                              className={subCategoryClasses}
+                              onClick={() => onSelectCategory(subCategory.slug?.current)}
+                            >
+                              <ChevronRight className="w-3 h-3 mr-2 group-hover:translate-x-1 transition-transform" />
+                              <span>{subCategory.title}</span>
+                              {selectedCategorySlug === subCategory.slug?.current && (
+                                <Badge variant="outline" className="ml-auto text-xs border-purple-300 text-purple-600 dark:border-purple-600 dark:text-purple-400">
+                                  ✓
+                                </Badge>
+                              )}
+                            </Button>
+                          );
+                        })}
                       </div>
                     </AccordionContent>
                   )}
