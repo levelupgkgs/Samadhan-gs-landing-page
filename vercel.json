@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "./build.sh",
+  "buildCommand": "npm install vite tsx && npm run build:sitemap && npx vite build",
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "rewrites": [
