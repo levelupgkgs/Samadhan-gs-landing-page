@@ -53,19 +53,35 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              <a href="#download" onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#download")?.scrollIntoView({ behavior: "smooth" });
-              }}>
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="hero-gradient px-8 py-4 rounded-xl text-white font-semibold text-lg hover:shadow-2xl transition-all duration-300">
+                <Button 
+                  className="hero-gradient px-8 py-4 rounded-xl text-white font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+                  onClick={() => {
+                    // Check if user is on mobile or tablet
+                    const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                    
+                    if (isMobileOrTablet) {
+                      // Direct link to Play Store or App Store
+                      const isAndroid = /Android/i.test(navigator.userAgent);
+                      const playStoreUrl = "https://play.google.com/store/apps/details?id=com.samadhangs.app";
+                      const appStoreUrl = "https://apps.apple.com/app/samadhan-gs/id123456789";
+                      
+                      window.open(isAndroid ? playStoreUrl : appStoreUrl, '_blank');
+                    } else {
+                      // On desktop, scroll to download section
+                      const element = document.getElementById("download");
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }
+                  }}
+                >
                   Download for Android
                 </Button>
               </motion.div>
-              </a>
             </motion.div>
             <motion.div 
               className="mt-8 flex items-center justify-center lg:justify-start gap-8 text-sm text-slate-400"
