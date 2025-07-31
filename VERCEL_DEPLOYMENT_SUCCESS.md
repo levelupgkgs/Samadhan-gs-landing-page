@@ -56,17 +56,12 @@ dist/assets/index-[hash].js       678.77 kB │ gzip: 206.70 kB
 ### Updated `vercel.json`:
 ```json
 {
-  "framework": null,
-  "buildCommand": "npm install vite tsx && npm run build:sitemap && cd client && SKIP_ENV_VALIDATION=true npx vite build",
-  "outputDirectory": "client/dist",
+  "buildCommand": "npm install && npm run build:sitemap && SKIP_ENV_VALIDATION=true npx vite build --config vite.config.ts",
+  "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/((?!api).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
@@ -74,10 +69,11 @@ dist/assets/index-[hash].js       678.77 kB │ gzip: 206.70 kB
 ```
 
 ### Key Configuration Changes:
-1. **Build Directory**: Changed from `dist/public` to `client/dist`
-2. **Build Command**: Added `cd client &&` to run Vite build in correct directory  
-3. **SPA Routing**: Proper rewrites for single-page application routing
+1. **Build Directory**: Corrected to `dist/public` (matches vite.config.ts output)
+2. **Build Command**: Simplified to use existing vite.config.ts configuration
+3. **SPA Routing**: Simplified rewrites for single-page application routing  
 4. **Asset Handling**: All static assets properly included in build output
+5. **404 Fix**: Corrected output directory resolves deployment 404 errors
 
 ## Next Steps for Deployment
 1. **Commit and push changes**:

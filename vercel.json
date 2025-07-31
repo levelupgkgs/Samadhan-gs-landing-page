@@ -1,27 +1,11 @@
 {
-  "framework": null,
-  "buildCommand": "npm install vite tsx && npm run build:sitemap && cd client && SKIP_ENV_VALIDATION=true npx vite build",
-  "outputDirectory": "client/dist",
+  "buildCommand": "npm install && npm run build:sitemap && SKIP_ENV_VALIDATION=true npx vite build --config vite.config.ts",
+  "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/((?!api).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
     }
   ]
 }
