@@ -16,7 +16,7 @@ A full-stack JavaScript application built with:
 
 ## Recent Changes
 - [2025-08-01] Fixed Vercel deployment configuration for monorepo structure - removed separate client install command and corrected output directory path from client/dist to dist/public
-- [2025-08-01] FIXED VERCEL DEPLOYMENT: Corrected build configuration to use root package.json with @vercel/static-build and proper directory structure
+- [2025-08-01] FIXED VERCEL DEPLOYMENT: Simplified to static site deployment by copying build files to public/ directory with basic rewrites configuration
 - [2025-01-31] ✅ SUCCESSFUL VERCEL DEPLOYMENT: Website fully deployed and accessible at https://samadhan-gs-landing-page-eirjrrrn2.vercel.app/
 - [2025-01-31] FIXED VERCEL DEPLOYMENT: Resolved all import resolution and build issues
 - [2025-01-31] Converted all @ alias imports to relative imports for production build compatibility
