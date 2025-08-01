@@ -1,9 +1,6 @@
-# Keep the source code but exclude from deployment
-client/
-server/
-shared/
-scripts/
+# Exclude from deployment but keep build dependencies
 node_modules/
 
-# Keep the build output
+# Keep build output and build dependencies
 !dist/
+!scripts/

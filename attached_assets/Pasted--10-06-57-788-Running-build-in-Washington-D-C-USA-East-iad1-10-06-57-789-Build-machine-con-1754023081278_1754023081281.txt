@@ -1,0 +1,69 @@
+[10:06:57.788] Running build in Washington, D.C., USA (East) – iad1
+[10:06:57.789] Build machine configuration: 2 cores, 8 GB
+[10:06:57.812] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 63e681e)
+[10:06:57.936] Previous build caches not available
+[10:06:58.235] Cloning completed: 422.000ms
+[10:06:58.270] Found .vercelignore (repository root)
+[10:06:58.290] Removed 104 ignored files defined in .vercelignore
+[10:06:58.290]   /client/index.html
+[10:06:58.291]   /client/public/Bilingual-min.webp
+[10:06:58.291]   /client/public/browserconfig.xml
+[10:06:58.291]   /client/public/Exam-analysis-min.webp
+[10:06:58.291]   /client/public/Expert-min.webp
+[10:06:58.291]   /client/public/Favorites-min.webp
+[10:06:58.291]   /client/public/frame.webp
+[10:06:58.292]   /client/public/GooglePlay.webp
+[10:06:58.292]   /client/public/govtlogo-min.webp
+[10:06:58.292]   /client/public/Regular-content-min.webp
+[10:06:58.753] Running "vercel build"
+[10:07:00.254] Vercel CLI 44.6.4
+[10:07:01.103] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[10:07:01.113] Running "install" command: `npm install`...
+[10:07:12.167] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[10:07:12.202] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[10:07:31.239] 
+[10:07:31.240] added 1436 packages, and audited 1437 packages in 30s
+[10:07:31.240] 
+[10:07:31.240] 201 packages are looking for funding
+[10:07:31.241]   run `npm fund` for details
+[10:07:31.343] 
+[10:07:31.344] 16 vulnerabilities (3 low, 13 moderate)
+[10:07:31.344] 
+[10:07:31.345] To address issues that do not require attention, run:
+[10:07:31.345]   npm audit fix
+[10:07:31.345] 
+[10:07:31.346] To address all issues (including breaking changes), run:
+[10:07:31.346]   npm audit fix --force
+[10:07:31.346] 
+[10:07:31.346] Run `npm audit` for details.
+[10:07:31.599] 
+[10:07:31.599] > rest-express@1.0.0 build
+[10:07:31.599] > npm run build:sitemap && npx vite build
+[10:07:31.599] 
+[10:07:31.722] 
+[10:07:31.722] > rest-express@1.0.0 build:sitemap
+[10:07:31.723] > npx tsx scripts/generate-sitemap.ts
+[10:07:31.723] 
+[10:07:32.441] 
+[10:07:32.441] node:internal/modules/run_main:123
+[10:07:32.441]     triggerUncaughtException(
+[10:07:32.442]     ^
+[10:07:32.442] Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/vercel/path0/scripts/generate-sitemap.ts' imported from /vercel/path0/
+[10:07:32.442]     at finalizeResolution (node:internal/modules/esm/resolve:283:11)
+[10:07:32.442]     at moduleResolve (node:internal/modules/esm/resolve:952:10)
+[10:07:32.442]     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+[10:07:32.443]     at nextResolve (node:internal/modules/esm/hooks:864:28)
+[10:07:32.443]     at resolveBase (file:///vercel/path0/node_modules/tsx/dist/esm/index.mjs?1754023052312:2:3212)
+[10:07:32.443]     at resolveDirectory (file:///vercel/path0/node_modules/tsx/dist/esm/index.mjs?1754023052312:2:3584)
+[10:07:32.443]     at resolveTsPaths (file:///vercel/path0/node_modules/tsx/dist/esm/index.mjs?1754023052312:2:4073)
+[10:07:32.444]     at resolve (file:///vercel/path0/node_modules/tsx/dist/esm/index.mjs?1754023052312:2:4447)
+[10:07:32.444]     at nextResolve (node:internal/modules/esm/hooks:864:28)
+[10:07:32.444]     at Hooks.resolve (node:internal/modules/esm/hooks:306:30) {
+[10:07:32.444]   code: 'ERR_MODULE_NOT_FOUND',
+[10:07:32.444]   url: 'file:///vercel/path0/scripts/generate-sitemap.ts'
+[10:07:32.445] }
+[10:07:32.445] 
+[10:07:32.445] Node.js v20.19.3
+[10:07:32.476] Error: Command "npm run build" exited with 1
+[10:07:32.831] 
+[10:07:35.560] Exiting build container
