@@ -1,26 +1,61 @@
 #!/usr/bin/env node
-
+import fs from 'fs';
+import path from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-console.log('Starting Vercel build process...');
+console.log('🔧 Starting Vercel build process...');
 
-try {
-  console.log('Installing build dependencies...');
-  execSync('npm install vite tsx --save-dev', { stdio: 'inherit' });
+// Run the normal build
+console.log('📦 Running npm build...');
+execSync('npm run build', { stdio: 'inherit' });
 
-  console.log('Building sitemap...');
-  execSync('npx tsx scripts/generate-sitemap.ts', { stdio: 'inherit' });
+// Find where the dist directory actually is
+const possiblePaths = [
+  './dist/public',
+  '../dist/public',
+  'dist/public',
+  './client/dist/public'
+];
 
-  console.log('Building with Vite...');
-  execSync('npx vite build', { stdio: 'inherit' });
+let sourceDir = null;
+for (const testPath of possiblePaths) {
+  if (fs.existsSync(testPath) && fs.existsSync(path.join(testPath, 'index.html'))) {
+    sourceDir = testPath;
+    console.log(`✅ Found build output at: ${sourceDir}`);
+    break;
+  }
+}
 
-  console.log('Build completed successfully!');
-} catch (error) {
-  console.error('Build failed:', error.message);
+if (!sourceDir) {
+  console.error('❌ Could not find build output directory');
   process.exit(1);
 }
+
+// Ensure target directory exists
+const targetDir = './dist';
+if (!fs.existsSync(targetDir)) {
+  fs.mkdirSync(targetDir, { recursive: true });
+}
+
+// Copy files
+console.log(`📁 Copying files from ${sourceDir} to ${targetDir}...`);
+try {
+  execSync(`cp -r ${sourceDir}/* ${targetDir}/`, { stdio: 'inherit' });
+  console.log('✅ Files copied successfully');
+  
+  // Verify the copy worked
+  if (fs.existsSync('./dist/index.html')) {
+    console.log('✅ index.html found in output directory');
+  } else {
+    console.error('❌ index.html not found after copy');
+    process.exit(1);
+  }
+} catch (error) {
+  console.error('❌ Copy failed:', error.message);
+  process.exit(1);
+}
+
+console.log('🎉 Build process completed successfully!');

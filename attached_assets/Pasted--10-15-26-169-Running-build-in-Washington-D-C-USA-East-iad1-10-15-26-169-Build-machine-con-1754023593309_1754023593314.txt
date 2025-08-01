@@ -1,0 +1,58 @@
+[10:15:26.169] Running build in Washington, D.C., USA (East) – iad1
+[10:15:26.169] Build machine configuration: 2 cores, 8 GB
+[10:15:26.183] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 35ee8c2)
+[10:15:26.321] Previous build caches not available
+[10:15:26.600] Cloning completed: 416.000ms
+[10:15:26.658] Found .vercelignore (repository root)
+[10:15:26.660] Removed 0 ignored files defined in .vercelignore
+[10:15:28.532] Running "vercel build"
+[10:15:29.000] Vercel CLI 44.6.4
+[10:15:29.579] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[10:15:29.588] Running "install" command: `npm install`...
+[10:15:40.241] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[10:15:40.315] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[10:16:00.406] 
+[10:16:00.407] added 1436 packages, and audited 1437 packages in 31s
+[10:16:00.407] 
+[10:16:00.408] 201 packages are looking for funding
+[10:16:00.408]   run `npm fund` for details
+[10:16:00.499] 
+[10:16:00.499] 16 vulnerabilities (3 low, 13 moderate)
+[10:16:00.500] 
+[10:16:00.500] To address issues that do not require attention, run:
+[10:16:00.500]   npm audit fix
+[10:16:00.501] 
+[10:16:00.501] To address all issues (including breaking changes), run:
+[10:16:00.501]   npm audit fix --force
+[10:16:00.502] 
+[10:16:00.502] Run `npm audit` for details.
+[10:16:00.737] 
+[10:16:00.741] > rest-express@1.0.0 build
+[10:16:00.741] > npm run build:sitemap && npx vite build
+[10:16:00.741] 
+[10:16:00.862] 
+[10:16:00.862] > rest-express@1.0.0 build:sitemap
+[10:16:00.863] > npx tsx scripts/generate-sitemap.ts
+[10:16:00.863] 
+[10:16:01.521] Sitemap generated successfully at client/public/sitemap.xml
+[10:16:02.083] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[10:16:02.146] transforming...
+[10:16:09.177] [32m✓[39m 2642 modules transformed.
+[10:16:09.533] rendering chunks...
+[10:16:09.812] computing gzip size...
+[10:16:09.837] [2m../dist/public/[22m[32mindex.html                                                                      [39m[1m[2m  5.64 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+[10:16:09.837] [2m../dist/public/[22m[2massets/[22m[32mWhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448-qyb03Swy.webp  [39m[1m[2m 49.70 kB[22m[1m[22m
+[10:16:09.838] [2m../dist/public/[22m[2massets/[22m[35mindex-DOGaudtt.css                                                       [39m[1m[2m110.73 kB[22m[1m[22m[2m │ gzip:  17.29 kB[22m
+[10:16:09.838] [2m../dist/public/[22m[2massets/[22m[36mstegaEncodeSourceMap-BkGYQL95.js                                         [39m[1m[2m  7.37 kB[22m[1m[22m[2m │ gzip:   3.04 kB[22m
+[10:16:09.839] [2m../dist/public/[22m[2massets/[22m[36mbrowser-B7C8VkwZ.js                                                      [39m[1m[2m 12.54 kB[22m[1m[22m[2m │ gzip:   4.96 kB[22m
+[10:16:09.839] [2m../dist/public/[22m[2massets/[22m[36mindex-DiFRGV5t.js                                                        [39m[1m[33m673.70 kB[39m[22m[2m │ gzip: 207.03 kB[22m
+[10:16:09.839] [32m✓ built in 7.73s[39m
+[10:16:09.843] [33m
+[10:16:09.843] (!) Some chunks are larger than 500 kB after minification. Consider:
+[10:16:09.844] - Using dynamic import() to code-split the application
+[10:16:09.844] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[10:16:09.844] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[10:16:09.890] cp: cannot stat 'dist/public/*': No such file or directory
+[10:16:09.893] Error: Command "npm run build && cp -r dist/public/* dist/" exited with 1
+[10:16:10.262] 
+[10:16:13.094] Exiting build container
