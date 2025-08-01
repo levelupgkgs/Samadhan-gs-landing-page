@@ -1,0 +1,54 @@
+[08:56:03.694] Running build in Washington, D.C., USA (East) – iad1
+[08:56:03.695] Build machine configuration: 2 cores, 8 GB
+[08:56:03.711] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 3167b10)
+[08:56:04.333] Cloning completed: 622.000ms
+[08:56:06.472] Restored build cache from previous deployment (7hEt7FPU7jHAhA1cUL8MPWkwobw9)
+[08:56:08.939] Running "vercel build"
+[08:56:09.422] Vercel CLI 44.6.4
+[08:56:10.032] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[08:56:10.042] Running "install" command: `npm install`...
+[08:56:15.440] 
+[08:56:15.442] up to date, audited 1437 packages in 5s
+[08:56:15.442] 
+[08:56:15.443] 201 packages are looking for funding
+[08:56:15.443]   run `npm fund` for details
+[08:56:15.533] 
+[08:56:15.534] 16 vulnerabilities (3 low, 13 moderate)
+[08:56:15.534] 
+[08:56:15.534] To address issues that do not require attention, run:
+[08:56:15.534]   npm audit fix
+[08:56:15.535] 
+[08:56:15.535] To address all issues (including breaking changes), run:
+[08:56:15.535]   npm audit fix --force
+[08:56:15.535] 
+[08:56:15.535] Run `npm audit` for details.
+[08:56:17.951] 
+[08:56:17.952] > rest-express@1.0.0 build
+[08:56:17.952] > npm run build:sitemap && npx vite build
+[08:56:17.952] 
+[08:56:18.082] 
+[08:56:18.083] > rest-express@1.0.0 build:sitemap
+[08:56:18.083] > npx tsx scripts/generate-sitemap.ts
+[08:56:18.083] 
+[08:56:18.842] Sitemap generated successfully at client/public/sitemap.xml
+[08:56:19.512] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[08:56:19.858] transforming...
+[08:56:26.960] [32m✓[39m 2642 modules transformed.
+[08:56:27.323] rendering chunks...
+[08:56:27.609] computing gzip size...
+[08:56:27.633] [2m../dist/public/[22m[32mindex.html                                                                      [39m[1m[2m  5.64 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+[08:56:27.634] [2m../dist/public/[22m[2massets/[22m[32mWhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448-qyb03Swy.webp  [39m[1m[2m 49.70 kB[22m[1m[22m
+[08:56:27.635] [2m../dist/public/[22m[2massets/[22m[35mindex-DOGaudtt.css                                                       [39m[1m[2m110.73 kB[22m[1m[22m[2m │ gzip:  17.29 kB[22m
+[08:56:27.635] [2m../dist/public/[22m[2massets/[22m[36mstegaEncodeSourceMap-BkGYQL95.js                                         [39m[1m[2m  7.37 kB[22m[1m[22m[2m │ gzip:   3.04 kB[22m
+[08:56:27.638] [2m../dist/public/[22m[2massets/[22m[36mbrowser-B7C8VkwZ.js                                                      [39m[1m[2m 12.54 kB[22m[1m[22m[2m │ gzip:   4.96 kB[22m
+[08:56:27.638] [2m../dist/public/[22m[2massets/[22m[36mindex-DiFRGV5t.js                                                        [39m[1m[33m673.70 kB[39m[22m[2m │ gzip: 207.03 kB[22m
+[08:56:27.639] [33m
+[08:56:27.639] (!) Some chunks are larger than 500 kB after minification. Consider:
+[08:56:27.639] - Using dynamic import() to code-split the application
+[08:56:27.639] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[08:56:27.639] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[08:56:27.640] [32m✓ built in 7.82s[39m
+[08:56:27.712] Build Completed in /vercel/output [18s]
+[08:56:27.732] Deploying outputs...
+[08:56:29.094] 
+[08:56:29.267] Deployment completed
