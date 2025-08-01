@@ -1,0 +1,58 @@
+[10:09:19.998] Running build in Washington, D.C., USA (East) – iad1
+[10:09:19.999] Build machine configuration: 2 cores, 8 GB
+[10:09:20.025] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 4d3e0bf)
+[10:09:20.152] Previous build caches not available
+[10:09:20.465] Cloning completed: 439.000ms
+[10:09:20.504] Found .vercelignore (repository root)
+[10:09:20.505] Removed 0 ignored files defined in .vercelignore
+[10:09:20.828] Running "vercel build"
+[10:09:22.613] Vercel CLI 44.6.4
+[10:09:24.695] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[10:09:24.708] Running "install" command: `npm install`...
+[10:09:37.001] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[10:09:37.074] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[10:09:57.653] 
+[10:09:57.654] added 1436 packages, and audited 1437 packages in 32s
+[10:09:57.655] 
+[10:09:57.655] 201 packages are looking for funding
+[10:09:57.656]   run `npm fund` for details
+[10:09:57.754] 
+[10:09:57.754] 16 vulnerabilities (3 low, 13 moderate)
+[10:09:57.754] 
+[10:09:57.754] To address issues that do not require attention, run:
+[10:09:57.754]   npm audit fix
+[10:09:57.754] 
+[10:09:57.754] To address all issues (including breaking changes), run:
+[10:09:57.754]   npm audit fix --force
+[10:09:57.754] 
+[10:09:57.754] Run `npm audit` for details.
+[10:09:58.144] 
+[10:09:58.145] > rest-express@1.0.0 build
+[10:09:58.145] > npm run build:sitemap && npx vite build
+[10:09:58.145] 
+[10:09:58.268] 
+[10:09:58.268] > rest-express@1.0.0 build:sitemap
+[10:09:58.269] > npx tsx scripts/generate-sitemap.ts
+[10:09:58.269] 
+[10:09:58.987] Sitemap generated successfully at client/public/sitemap.xml
+[10:09:59.566] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[10:09:59.629] transforming...
+[10:10:06.856] [32m✓[39m 2642 modules transformed.
+[10:10:07.193] rendering chunks...
+[10:10:07.482] computing gzip size...
+[10:10:07.505] [2m../dist/public/[22m[32mindex.html                                                                      [39m[1m[2m  5.64 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+[10:10:07.505] [2m../dist/public/[22m[2massets/[22m[32mWhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448-qyb03Swy.webp  [39m[1m[2m 49.70 kB[22m[1m[22m
+[10:10:07.506] [2m../dist/public/[22m[2massets/[22m[35mindex-DOGaudtt.css                                                       [39m[1m[2m110.73 kB[22m[1m[22m[2m │ gzip:  17.29 kB[22m
+[10:10:07.506] [2m../dist/public/[22m[2massets/[22m[36mstegaEncodeSourceMap-BkGYQL95.js                                         [39m[1m[2m  7.37 kB[22m[1m[22m[2m │ gzip:   3.04 kB[22m
+[10:10:07.506] [2m../dist/public/[22m[2massets/[22m[36mbrowser-B7C8VkwZ.js                                                      [39m[1m[2m 12.54 kB[22m[1m[22m[2m │ gzip:   4.96 kB[22m
+[10:10:07.507] [2m../dist/public/[22m[2massets/[22m[36mindex-DiFRGV5t.js                                                        [39m[1m[33m673.70 kB[39m[22m[2m │ gzip: 207.03 kB[22m
+[10:10:07.507] [32m✓ built in 7.92s[39m
+[10:10:07.507] [33m
+[10:10:07.507] (!) Some chunks are larger than 500 kB after minification. Consider:
+[10:10:07.508] - Using dynamic import() to code-split the application
+[10:10:07.511] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[10:10:07.511] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[10:10:07.570] Error: No Output Directory named "public" found after the Build completed. You can configure the Output Directory in your Project Settings.
+[10:10:07.570] Learn More: https://vercel.link/missing-public-directory
+[10:10:07.926] 
+[10:10:10.466] Exiting build container
