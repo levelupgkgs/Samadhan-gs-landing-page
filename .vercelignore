@@ -1,13 +1,9 @@
-# Build directories that shouldn't be in final deploy
-dist/
+# Keep the source code but exclude from deployment
 client/
 server/
+shared/
+scripts/
 node_modules/
 
-# Keep built assets at root
-!index.html
-!assets/
-!*.webp
-!*.xml
-!*.txt
-!*.json
+# Keep the build output
+!dist/
