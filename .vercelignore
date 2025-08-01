@@ -1,0 +1,3 @@
+# Don't ignore dist directory
+!dist/
+!dist/**/*
