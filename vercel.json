@@ -1,21 +1,12 @@
 {
-  "version": 2,
-  "builds": [
+  "buildCommand": "npm run build && cp -r dist/public/* .",
+  "outputDirectory": ".",
+  "installCommand": "npm install",
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/public"
-      }
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "functions": {}
 }

@@ -1,3 +1,13 @@
-# Don't ignore dist directory
-!dist/
-!dist/**/*
+# Build directories that shouldn't be in final deploy
+dist/
+client/
+server/
+node_modules/
+
+# Keep built assets at root
+!index.html
+!assets/
+!*.webp
+!*.xml
+!*.txt
+!*.json
