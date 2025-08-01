@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "buildCommand": "npm run build && mkdir -p dist && (cp -r dist/public/* dist/ 2>/dev/null || true) && ls -la dist/index.html dist/assets/ 2>/dev/null || echo 'Build files ready'",
-  "outputDirectory": "dist",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "rewrites": [
     {
