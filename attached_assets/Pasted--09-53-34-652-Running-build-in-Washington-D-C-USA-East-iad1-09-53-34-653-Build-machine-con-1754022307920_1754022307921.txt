@@ -1,0 +1,40 @@
+[09:53:34.652] Running build in Washington, D.C., USA (East) – iad1
+[09:53:34.653] Build machine configuration: 2 cores, 8 GB
+[09:53:34.667] Cloning github.com/levelupgkgs/Samadhan-gs-landing-page (Branch: master, Commit: 5ba609b)
+[09:53:35.077] Cloning completed: 410.000ms
+[09:53:35.133] Found .vercelignore (repository root)
+[09:53:35.136] Removed 0 ignored files defined in .vercelignore
+[09:53:36.600] Restored build cache from previous deployment (8dss9rgh9PJQWwXZB3MU99NijCzc)
+[09:53:39.238] Running "vercel build"
+[09:53:39.718] Vercel CLI 44.6.4
+[09:53:40.287] Warning: Due to "engines": { "node": "20.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("22.x") will not apply, Node.js Version "20.x" will be used instead. Learn More: http://vercel.link/node-version
+[09:53:40.463] 
+[09:53:40.464] > rest-express@1.0.0 build
+[09:53:40.465] > npm run build:sitemap && npx vite build
+[09:53:40.465] 
+[09:53:40.595] 
+[09:53:40.596] > rest-express@1.0.0 build:sitemap
+[09:53:40.596] > npx tsx scripts/generate-sitemap.ts
+[09:53:40.597] 
+[09:53:41.552] Sitemap generated successfully at client/public/sitemap.xml
+[09:53:42.174] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[09:53:42.524] transforming...
+[09:53:49.607] [32m✓[39m 2642 modules transformed.
+[09:53:49.961] rendering chunks...
+[09:53:50.226] computing gzip size...
+[09:53:50.249] [2m../dist/public/[22m[32mindex.html                                                                      [39m[1m[2m  5.64 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+[09:53:50.250] [2m../dist/public/[22m[2massets/[22m[32mWhatsApp Image 2025-07-30 at 9.57.51 PM-min_1753983356448-qyb03Swy.webp  [39m[1m[2m 49.70 kB[22m[1m[22m
+[09:53:50.250] [2m../dist/public/[22m[2massets/[22m[35mindex-DOGaudtt.css                                                       [39m[1m[2m110.73 kB[22m[1m[22m[2m │ gzip:  17.29 kB[22m
+[09:53:50.250] [2m../dist/public/[22m[2massets/[22m[36mstegaEncodeSourceMap-BkGYQL95.js                                         [39m[1m[2m  7.37 kB[22m[1m[22m[2m │ gzip:   3.04 kB[22m
+[09:53:50.250] [2m../dist/public/[22m[2massets/[22m[36mbrowser-B7C8VkwZ.js                                                      [39m[1m[2m 12.54 kB[22m[1m[22m[2m │ gzip:   4.96 kB[22m
+[09:53:50.251] [2m../dist/public/[22m[2massets/[22m[36mindex-DiFRGV5t.js                                                        [39m[1m[33m673.70 kB[39m[22m[2m │ gzip: 207.03 kB[22m
+[09:53:50.251] [33m
+[09:53:50.251] (!) Some chunks are larger than 500 kB after minification. Consider:
+[09:53:50.251] - Using dynamic import() to code-split the application
+[09:53:50.251] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[09:53:50.251] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[09:53:50.252] [32m✓ built in 8.05s[39m
+[09:53:50.322] Build Completed in /vercel/output [10s]
+[09:53:50.344] Deploying outputs...
+[09:53:51.774] 
+[09:53:51.904] Deployment completed
